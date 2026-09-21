@@ -1,0 +1,47 @@
+# What the live site, https://avdasi2.github.io, shows.
+#
+# The in-progress site (npm run serve) shows everything in docs/, and is local
+# only. The live site shows only the pages listed here, and
+# scripts/build_live.py enforces it:
+#
+#   - a page not listed here is left out;
+#   - a link from a published page to an unpublished one becomes plain text, so
+#     nothing dangles and nothing unfinished is reachable;
+#   - anything in a published page between <!-- in-progress:start --> and
+#     <!-- in-progress:end --> is removed;
+#   - the built site's own links are then checked, and the build fails if any
+#     are broken.
+#
+# To publish a page, add it here, run `npm run preview:live` and look at it on
+# http://localhost:8002, then commit and push.
+#
+# Everything listed below was already public on the old site, so nothing is
+# being taken away from students by this gate. New or reworked pages stay off
+# the list until someone has read them.
+
+site_url: https://avdasi2.github.io/
+
+pages:
+  - index.md
+  - avionics/index.md
+  - avionics/intro.md
+  - avionics/getting-ready.md
+  - avionics/kit-list.md
+  - avionics/stepbystep/index.md
+  - avionics/stepbystep/00-kit.md
+  - avionics/stepbystep/01-cube.md
+  - avionics/stepbystep/02-missionplanner.md
+  - avionics/stepbystep/03-telemetry.md
+  - avionics/stepbystep/04-power.md
+  - avionics/stepbystep/05-servos.md
+  - avionics/stepbystep/06-lua.md
+  - avionics/stepbystep/07-adc.md
+  - avionics/stepbystep/08-i2c.md
+  - avionics/stepbystep/98-more.md
+  - avionics/sensors.md
+  - avionics/examplecode.md
+  - avionics/links.md
+
+# Built decks under docs/slides/, by folder name. Run `npm run slides` first.
+slides:
+  - intro

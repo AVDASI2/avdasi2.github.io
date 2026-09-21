@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 268" role="img"
+     aria-label="A four-bar linkage: a fixed ground link between two pivots, a crank and a follower rising from them, and a coupler joining their tops. A dashed outline shows a second position.">
+  <title>4-bar linkage</title>
+  <style>
+    .lnk { fill:none; stroke:#1e1e24; stroke-width:6; stroke-linecap:round; }
+    .alt { fill:none; stroke:#9a9aa2; stroke-width:3; stroke-dasharray:7 5; stroke-linecap:round; }
+    .grd { fill:none; stroke:#1e1e24; stroke-width:4; }
+    .piv { fill:#ffffff; stroke:#1e1e24; stroke-width:3; }
+    .t { font:600 16px "Trebuchet MS",sans-serif; fill:#1e1e24; }
+    .r { font:600 16px "Trebuchet MS",sans-serif; fill:#b01c2e; }
+    .hatch { stroke:#1e1e24; stroke-width:2; }
+  </style>
+
+  <!-- second position, dashed -->
+  <path class="alt" d="M110 210 L168 96 L330 130 L350 210"/>
+
+  <!-- the four bars -->
+  <path class="lnk" d="M110 210 L150 90"/>
+  <path class="lnk" d="M150 90 L312 118"/>
+  <path class="lnk" d="M312 118 L350 210"/>
+  <line class="grd" x1="110" y1="210" x2="350" y2="210"/>
+
+  <!-- ground hatching -->
+  <g class="hatch">
+    <line x1="96" y1="226" x2="112" y2="210"/><line x1="120" y1="226" x2="136" y2="210"/>
+    <line x1="144" y1="226" x2="160" y2="210"/><line x1="168" y1="226" x2="184" y2="210"/>
+    <line x1="192" y1="226" x2="208" y2="210"/><line x1="216" y1="226" x2="232" y2="210"/>
+    <line x1="240" y1="226" x2="256" y2="210"/><line x1="264" y1="226" x2="280" y2="210"/>
+    <line x1="288" y1="226" x2="304" y2="210"/><line x1="312" y1="226" x2="328" y2="210"/>
+    <line x1="336" y1="226" x2="352" y2="210"/>
+  </g>
+
+  <!-- pivots -->
+  <circle class="piv" cx="110" cy="210" r="9"/>
+  <circle class="piv" cx="350" cy="210" r="9"/>
+  <circle class="piv" cx="150" cy="90" r="9"/>
+  <circle class="piv" cx="312" cy="118" r="9"/>
+
+  <!-- labels -->
+  <text x="88" y="140" class="t" text-anchor="end">crank</text>
+  <text x="228" y="82" class="t" text-anchor="middle">coupler</text>
+  <text x="372" y="160" class="t">follower</text>
+  <text x="230" y="252" class="t" text-anchor="middle">ground</text>
+</svg>

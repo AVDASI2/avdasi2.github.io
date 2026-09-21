@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" role="img"
+     aria-label="A servo tester: a small box with a dial and a three-position mode switch, its lead plugged into a servo, with no flight controller involved.">
+  <title>A servo tester</title>
+  <style>
+    .b { fill:#ffffff; stroke:#1e1e24; stroke-width:2.5; }
+    .d { fill:#f4f5f5; stroke:#1e1e24; stroke-width:2; }
+    .t { font:600 14px "Trebuchet MS",sans-serif; fill:#1e1e24; }
+    .s { font:12px "Trebuchet MS",sans-serif; fill:#55555e; }
+    .w { fill:none; stroke:#1e1e24; stroke-width:3; }
+  </style>
+
+  <!-- tester body -->
+  <rect class="b" x="24" y="70" width="170" height="130" rx="10"/>
+  <text x="109" y="94" class="t" text-anchor="middle">servo tester</text>
+  <circle class="d" cx="75" cy="140" r="30"/>
+  <line x1="75" y1="140" x2="93" y2="120" stroke="#b01c2e" stroke-width="4" stroke-linecap="round"/>
+  <text x="75" y="186" class="s" text-anchor="middle">position</text>
+  <rect class="d" x="125" y="118" width="46" height="44" rx="5"/>
+  <circle cx="148" cy="128" r="4" fill="#b01c2e"/>
+  <circle cx="148" cy="140" r="4" fill="#cfd2d1"/>
+  <circle cx="148" cy="152" r="4" fill="#cfd2d1"/>
+  <text x="148" y="186" class="s" text-anchor="middle">mode</text>
+
+  <!-- lead -->
+  <path class="w" d="M194 135 C 230 135, 235 120, 270 120"/>
+
+  <!-- servo -->
+  <rect class="b" x="270" y="92" width="86" height="62" rx="5"/>
+  <rect class="d" x="282" y="70" width="62" height="24" rx="4"/>
+  <circle class="d" cx="313" cy="82" r="9"/>
+  <line x1="313" y1="82" x2="313" y2="60" stroke="#1e1e24" stroke-width="5" stroke-linecap="round"/>
+  <text x="313" y="176" class="t" text-anchor="middle">servo + horn</text>
+
+  <text x="210" y="240" class="s" text-anchor="middle">No flight controller. No code. Just: does the mechanism move as designed?</text>
+</svg>

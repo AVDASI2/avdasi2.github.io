@@ -1,0 +1,64 @@
+/* AVDASI 2 additions on top of the Flight Lab palette (flightlab.css). */
+
+/* Screenshots and diagrams: give them a light card in dark mode. */
+.md-typeset img {
+  border-radius: 4px;
+}
+[data-md-color-scheme="slate"] .md-typeset figure img {
+  background: #fff;
+  padding: 4px;
+}
+
+/* Links from a session page to its slides and other resources. */
+.md-typeset .lesson-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0.5rem 0 1.5rem;
+}
+.md-typeset .lesson-links a {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--md-primary-fg-color);
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.md-typeset .lesson-links a:hover {
+  background: var(--md-primary-fg-color);
+  color: #fff;
+}
+
+/* ---------- Footer legibility ---------- */
+
+/* The footer band is brand red (flightlab.css). Lift the copyright text to
+   full white and underline its links, so they read as links by shape as well
+   as colour. */
+.md-footer-meta .md-copyright,
+.md-footer-meta .md-copyright__highlight {
+  color: #fff;
+  opacity: 1;
+}
+.md-footer-meta .md-copyright {
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+.md-footer-meta.md-typeset a,
+.md-footer-meta.md-typeset a:not(:focus, :hover) {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+  text-decoration-color: #ffffffa6;
+}
+.md-footer-meta.md-typeset a:hover,
+.md-footer-meta.md-typeset a:focus {
+  color: #fff;
+  text-decoration-color: #fff;
+  text-decoration-thickness: 2px;
+}
+.md-footer-meta.md-typeset a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  border-radius: 2px;
+}

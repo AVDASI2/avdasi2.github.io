@@ -1,0 +1,20 @@
+{
+  "name": "avdasi2-docs",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AVDASI 2 avionics docs and session slides",
+  "type": "module",
+  "scripts": {
+    "slides": "node scripts/build-slides.mjs",
+    "site": ".venv/bin/zensical build --clean",
+    "serve": ".venv/bin/zensical serve --dev-addr localhost:8001",
+    "build": "npm run slides && npm run site && npm run live",
+    "live": ".venv/bin/python scripts/build_live.py",
+    "preview:live": ".venv/bin/python scripts/build_live.py && .venv/bin/python scripts/preview.py .live/site 8002",
+    "preview:live:serve": ".venv/bin/python scripts/preview.py .live/site 8002"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.5.1",
+    "flightlab-marp-template": "github:BristolFlightLab/flightlab-marp-template#v2.0.0"
+  }
+}

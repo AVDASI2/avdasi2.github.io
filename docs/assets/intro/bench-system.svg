@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 440" role="img"
+     aria-label="The bench system: the bench supply feeds the power module and a BEC; the Cube reads sensors and drives the servos; the transmitter reaches the Cube through a receiver, and the laptop over a Wi-Fi telemetry link.">
+  <title>The system on the bench</title>
+  <style>
+    .b { fill:#ffffff; stroke:#1e1e24; stroke-width:2; }
+    .cube { fill:#fdf1f2; stroke:#b01c2e; stroke-width:3; }
+    .t { font:600 15px "Trebuchet MS",sans-serif; fill:#1e1e24; }
+    .s { font:12px "Trebuchet MS",sans-serif; fill:#55555e; }
+    .k { font:700 12.5px "Trebuchet MS",sans-serif; }
+    .pw { fill:none; stroke:#ee7219; stroke-width:3; marker-end:url(#o); }
+    .sg { fill:none; stroke:#1e1e24; stroke-width:2; marker-end:url(#d); }
+    .rf { fill:none; stroke:#00c0b5; stroke-width:2.5; stroke-dasharray:6 4; marker-end:url(#t); }
+    .rf2{ fill:none; stroke:#00c0b5; stroke-width:2.5; stroke-dasharray:6 4; marker-end:url(#t); marker-start:url(#t2); }
+  </style>
+  <defs>
+    <marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#ee7219"/></marker>
+    <marker id="d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1e1e24"/></marker>
+    <marker id="t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#00c0b5"/></marker>
+    <marker id="t2" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#00c0b5"/></marker>
+  </defs>
+
+  <!-- key -->
+  <line x1="600" y1="416" x2="628" y2="416" stroke="#ee7219" stroke-width="3"/>
+  <text x="634" y="420" class="k" fill="#ee7219">power</text>
+  <line x1="700" y1="416" x2="728" y2="416" stroke="#1e1e24" stroke-width="2"/>
+  <text x="734" y="420" class="k" fill="#1e1e24">signal wire</text>
+  <line x1="836" y1="416" x2="864" y2="416" stroke="#00c0b5" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <text x="870" y="420" class="k" fill="#00c0b5">wireless</text>
+
+  <!-- power -->
+  <rect class="b" x="20" y="30" width="150" height="56" rx="6"/>
+  <text x="95" y="54" class="t" text-anchor="middle">Bench supply</text>
+  <text x="95" y="72" class="s" text-anchor="middle">mains, ≤ 15 V</text>
+
+  <rect class="b" x="215" y="30" width="160" height="56" rx="6"/>
+  <text x="295" y="54" class="t" text-anchor="middle">Power module</text>
+  <text x="295" y="72" class="s" text-anchor="middle">regulates, measures</text>
+
+  <rect class="b" x="215" y="170" width="160" height="56" rx="6"/>
+  <text x="295" y="194" class="t" text-anchor="middle">BEC</text>
+  <text x="295" y="212" class="s" text-anchor="middle">5 V for the servos</text>
+
+  <path class="pw" d="M170 58 L211 58"/>
+  <path class="pw" d="M95 86 L95 198 L211 198"/>
+  <path class="pw" d="M375 58 L426 58"/>
+  <path class="pw" d="M375 198 L696 198"/>
+
+  <!-- cube -->
+  <rect class="cube" x="430" y="30" width="170" height="110" rx="8"/>
+  <text x="515" y="64" class="t" text-anchor="middle" fill="#b01c2e">Cube Orange+</text>
+  <text x="515" y="86" class="s" text-anchor="middle">flight controller</text>
+  <text x="515" y="106" class="s" text-anchor="middle">logs to its SD card</text>
+
+  <!-- sensors and servos -->
+  <rect class="b" x="700" y="30" width="180" height="56" rx="6"/>
+  <text x="790" y="54" class="t" text-anchor="middle">Sensors</text>
+  <text x="790" y="72" class="s" text-anchor="middle">ADC · I²C</text>
+  <path class="sg" d="M698 58 L604 58"/>
+
+  <rect class="b" x="700" y="150" width="180" height="76" rx="6"/>
+  <text x="790" y="180" class="t" text-anchor="middle">Servos</text>
+  <text x="790" y="200" class="s" text-anchor="middle">control surfaces</text>
+  <path class="sg" d="M600 120 L660 120 L660 168 L696 168"/>
+  <text x="608" y="112" class="s">PWM</text>
+
+  <!-- radio route -->
+  <rect class="b" x="20" y="330" width="150" height="56" rx="6"/>
+  <text x="95" y="354" class="t" text-anchor="middle">Transmitter</text>
+  <text x="95" y="372" class="s" text-anchor="middle">the safety pilot</text>
+  <rect class="b" x="215" y="330" width="160" height="56" rx="6"/>
+  <text x="295" y="354" class="t" text-anchor="middle">Receiver</text>
+  <text x="295" y="372" class="s" text-anchor="middle">on the aircraft</text>
+  <path class="rf" d="M170 358 L211 358"/>
+  <path class="sg" d="M375 358 L500 358 L500 144"/>
+  <text x="386" y="348" class="s">wire to the Cube</text>
+
+  <!-- telemetry route -->
+  <rect class="b" x="700" y="330" width="180" height="56" rx="6"/>
+  <text x="790" y="354" class="t" text-anchor="middle">Laptop</text>
+  <text x="790" y="372" class="s" text-anchor="middle">Mission Planner</text>
+  <path class="rf2" d="M575 142 L575 358 L696 358"/>
+  <text x="586" y="286" class="s">Wi-Fi telemetry</text>
+
+  <text x="20" y="420" class="t">Both routes reach the same aircraft. You need them both working.</text>
+</svg>

@@ -1,0 +1,79 @@
+# Build the live site and publish it to GitHub Pages.
+#
+# This repository is the user/org Pages site AVDASI2/avdasi2.github.io, so the
+# build is served at https://avdasi2.github.io/ with no path prefix.
+#
+# The live site is only what publish.yaml lists, built by scripts/build_live.py,
+# which fails on a broken link so a deploy can't publish one. Everything else
+# stays on the in-progress site, which is local only (npm run serve).
+#
+# Decks are built here from slides/ with the published Flight Lab Marp theme
+# (BristolFlightLab/marp-template, pinned to a tag in package.json). PDF export
+# needs Chrome, which the runner already has.
+#
+# One-off setting: Settings > Pages > Build and deployment > Source must be
+# "GitHub Actions". The previous site (MkDocs, published from AVDASI2/docs) is
+# tagged v2025-26-mkdocs and v2025-26-site in that repository.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Permissions are per job, not workflow-wide: the build job, which also runs on
+# pull requests, can only read. Only the deploy job can write to Pages.
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The Flight Lab theme is a submodule; without this the build fails
+          # on a missing stylesheet rather than publishing an unbranded site.
+          submodules: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - run: pip install -r requirements.txt
+      - run: npm ci
+
+      # avionics/examplecode.md includes these scripts from docs/code/.
+      - run: ./scripts/fetch-example-code.sh
+
+      - run: npm run slides
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+
+      - name: Build the live site and check its links
+        run: python scripts/build_live.py
+
+      - if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .live/site
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment

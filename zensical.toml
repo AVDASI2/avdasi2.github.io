@@ -1,0 +1,119 @@
+[project]
+site_name = "AVDASI 2 · in progress"
+site_description = "Avionics resources for AVDASI 2 (CADE20005) Aerospace Vehicle Design and Systems Integration at the University of Bristol."
+site_author = "AVDASI 2 teaching team, University of Bristol"
+site_url = "https://avdasi2.github.io/"
+repo_url = "https://github.com/AVDASI2/avdasi2.github.io"
+edit_uri = "edit/main/docs/"
+copyright = "AVDASI 2 &middot; Bristol Flight Lab &middot; University of Bristol"
+
+nav = [
+  { "Home" = "index.md" },
+  { "Avionics" = [
+    "avionics/index.md",
+    { "Introduction" = "avionics/intro.md" },
+    { "Getting ready" = "avionics/getting-ready.md" },
+    { "Kit list" = "avionics/kit-list.md" },
+    { "Step-by-step guide" = [
+      "avionics/stepbystep/index.md",
+      { "00. Kit" = "avionics/stepbystep/00-kit.md" },
+      { "01. Cube" = "avionics/stepbystep/01-cube.md" },
+      { "02. Mission Planner" = "avionics/stepbystep/02-missionplanner.md" },
+      { "03. Telemetry" = "avionics/stepbystep/03-telemetry.md" },
+      { "04. Power" = "avionics/stepbystep/04-power.md" },
+      { "05. Servos" = "avionics/stepbystep/05-servos.md" },
+      { "06. Lua Scripts" = "avionics/stepbystep/06-lua.md" },
+      { "07. ADC" = "avionics/stepbystep/07-adc.md" },
+      { "08. I2C" = "avionics/stepbystep/08-i2c.md" },
+      { "More" = "avionics/stepbystep/98-more.md" },
+    ] },
+    { "Sensors" = "avionics/sensors.md" },
+    { "Example Code" = "avionics/examplecode.md" },
+    { "Expert links" = "avionics/links.md" },
+  ] },
+]
+
+extra_css = ["stylesheets/flightlab.css", "stylesheets/course.css"]
+extra_javascript = ["javascripts/analytics.js"]
+
+[project.extra]
+social = [
+  { icon = "fontawesome/brands/github", link = "https://github.com/AVDASI2" },
+]
+
+[project.theme]
+language = "en"
+# The Flight Lab theme, as a submodule pinned to a tag. custom_dir resolves
+# against this config file's own directory, and its contents are copied to the
+# site root, so it points at dist/ rather than the repository root. A file in
+# docs/ wins over the same path here, so one file can be overridden without
+# forking the theme.
+custom_dir = "theme/dist"
+# flightlab.css replaces the header logo with the University crest; the Flight
+# Lab mark stays as the browser tab icon.
+logo = "assets/logo.png"
+favicon = "assets/logo.png"
+features = [
+  "content.action.edit",
+  "content.code.annotate",
+  "content.code.copy",
+  "content.code.select",
+  "content.footnote.tooltips",
+  "content.tabs.link",
+  "content.tooltips",
+  "navigation.footer",
+  "navigation.indexes",
+  "navigation.instant",
+  "navigation.instant.prefetch",
+  "navigation.path",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+  "toc.follow",
+]
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to light mode"
+
+[project.plugins.glightbox]
+
+[project.markdown_extensions]
+abbr = {}
+admonition = {}
+attr_list = {}
+def_list = {}
+footnotes = {}
+md_in_html = {}
+tables = {}
+toc.permalink = true
+pymdownx.arithmatex.generic = true
+pymdownx.betterem = {}
+pymdownx.caret = {}
+pymdownx.details = {}
+pymdownx.emoji.emoji_index = "zensical.extensions.emoji.twemoji"
+pymdownx.emoji.emoji_generator = "zensical.extensions.emoji.to_svg"
+pymdownx.highlight.anchor_linenums = true
+pymdownx.highlight.line_spans = "__span"
+pymdownx.highlight.linenums = true
+pymdownx.highlight.pygments_lang_class = true
+pymdownx.inlinehilite = {}
+pymdownx.keys = {}
+pymdownx.mark = {}
+pymdownx.smartsymbols = {}
+# Example code is included from docs/code/, which CI clones from
+# AVDASI2/avdasi2-avionics-demo (locally: scripts/fetch-example-code.sh).
+pymdownx.snippets = {}
+pymdownx.superfences = {}
+pymdownx.tabbed.alternate_style = true
+pymdownx.tabbed.combine_header_slug = true
+pymdownx.tasklist.custom_checkbox = true
+pymdownx.tilde = {}
