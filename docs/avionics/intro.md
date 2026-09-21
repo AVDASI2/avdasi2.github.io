@@ -26,8 +26,8 @@ The introductory lecture for **Avionics and Mechanisms**, delivered to the full 
 
 ## Before your first workshop
 
-- Install [Mission Planner](stepbystep/02-missionplanner.md) on a Windows laptop. Stop before the *Connecting* section; that needs the kit.
-- Read the [step-by-step guide](stepbystep/index.md) index and the [Kit](stepbystep/00-kit.md) and [Cube](stepbystep/01-cube.md) pages.
-- Mechanisms: install the [Linkage app](https://blog.rectorsquid.com/linkage-mechanism-designer-and-simulator/) before week 3. It is Windows only; the macOS version is in early beta.
+Everything the avionics side asks of you beforehand — the Windows laptop, Mission Planner, the pages to read ahead, and what happens at kit issue — is on one page.
 
-Next: [Getting ready](getting-ready.md).
+[Getting ready :material-arrow-right:](getting-ready.md){: .md-button .md-button--primary }
+
+For Mechanisms, install the [Linkage app](https://blog.rectorsquid.com/linkage-mechanism-designer-and-simulator/) before week 3. It is Windows only; the macOS version is in early beta.
