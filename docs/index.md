@@ -10,7 +10,7 @@ As of the current teaching year, this site is largely for the [Avionics](avionic
 
 !!! info "Other links"
 
-    * [See what people are sharing about AVDASI2 on LinkedIn](https://www.linkedin.com/search/results/all/?keywords=%22avdasi2%22)
+    * [See what people are sharing about AVDASI2 on LinkedIn](https://www.linkedin.com/search/results/content/?keywords=%22avdasi2%22%20OR%20%22avdasi%202%22%20OR%20%22AVDASI2%22%20OR%20%22AVDASI%202%22%20OR%20%22%23AVDASI2%22%20OR%20%22%23AVDASI%202%22&origin=GLOBAL_SEARCH_HEADER)
     * [Find out more about our Aerospace programmes at the University of Bristol](https://www.bristol.ac.uk/study/undergraduate/search/?query=aerospace)
 
 ## Site info
