@@ -31,6 +31,23 @@ author: "Dr. Steve Bullock"
 .strip img { width: 33%; max-height: 190px; object-fit: cover; border-radius: 4px; }
 
 /* Video: live embed on screen, a linked still in the PDF. */
+.realisation ul { display: grid; grid-template-columns: repeat(12, 1fr);
+  gap: 0.5em 0.6em; margin-top: 0.5em; padding: 0; list-style: none; }
+/* The list is what Marp fragments, so each card has to be a list item. */
+.realisation li { display: flex; flex-wrap: wrap; justify-content: center;
+  align-items: center; gap: 0.25em; margin: 0;
+  border: 1px solid #d8d8dd; border-radius: 6px; padding: 0.4em 0.5em 0.5em; }
+.realisation li::marker { content: ""; }
+.realisation li:nth-child(-n+3) { grid-column: span 4; }
+.realisation li:nth-child(n+4) { grid-column: span 3; }
+.realisation strong { flex: 0 0 100%; text-align: center; font-size: 0.6em;
+  line-height: 1.25; margin-bottom: 0.3em; color: #b01c2e; }
+.realisation img { max-width: 100%; max-height: 124px; object-fit: contain; }
+.realisation li:nth-child(n+4) img { max-height: 104px; }
+.realisation li:nth-child(4) img { max-height: 44px; }
+.realisation li:last-child img { max-height: 92px;
+  border-top: 3px solid #00b050; }
+.realisation li:last-child img:last-child { border-top-color: #b01c2e; }
 @media print { .only-html { display: none !important; } }
 @media screen { .only-print { display: none !important; } }
 .only-html iframe { width: 100%; height: 420px; border: 0; }
@@ -477,6 +494,34 @@ Install the **[Linkage app](https://blog.rectorsquid.com/linkage-mechanism-desig
 <!--
 TODO(Steve): session content and who leads each - to be confirmed with Mark
 and Vince.
+-->
+
+---
+
+# Mechanisms — design realisation
+
+<div class="realisation">
+
+* **From kinematics to practical geometry** ![](../../docs/assets/intro/mech-kinematics.png)
+* **Transferring torque and motion** ![](../../docs/assets/intro/mech-torque.svg)
+* **Design of pivots and joints** ![](../../docs/assets/intro/mech-pivots.png)
+* **Standard parts and their uses** ![](../../docs/assets/intro/mech-bearing-flanged.png) ![](../../docs/assets/intro/mech-bush-bronze.jpg) ![](../../docs/assets/intro/mech-bush-plastic.png) ![](../../docs/assets/intro/mech-bearing-plastic.png) ![](../../docs/assets/intro/mech-washer.png) ![](../../docs/assets/intro/mech-shoulder-screw.png)
+* **Precision machining and metrology** ![](../../docs/assets/intro/mech-reaming.png)
+* **Functional tolerancing and tolerance analysis** ![](../../docs/assets/intro/mech-tolerancing.png)
+* **Examples and non-examples** ![](../../docs/assets/intro/mech-example-good.jpg) ![](../../docs/assets/intro/mech-example-bad.jpg)
+
+</div>
+
+<!--
+Mark delivers this one. Seven clicks, one per topic, in the order of his own
+slide: kinematics, torque and motion, pivots and joints, standard parts,
+machining and metrology, tolerancing, then the examples.
+
+The torque and motion sketch is redrawn from Mark's original: a flap carried
+on a support at each end, driven from one end only, so the drive has to reach
+across the whole span. The frowning face is his.
+
+Source: Mark's "Mechanisms - Design realisation" slide, September 2026.
 -->
 
 ---

@@ -23,6 +23,7 @@ The introductory lecture for **Avionics and Mechanisms**, delivered to the full 
 - The design task: kinematics in the Linkage app, then bearings, backlash and buildability
 - Where mechanisms meets avionics — the servo cable, and who owns which side of it
 - What broke last year, and the mechanisms sessions from week 3
+- Design realisation: practical geometry, transferring torque and motion, pivots and joints, standard parts, machining and metrology, tolerancing
 
 ## Before your first workshop
 
