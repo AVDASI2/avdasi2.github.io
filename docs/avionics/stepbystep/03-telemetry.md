@@ -13,7 +13,7 @@ We'll start point-to-point, because it needs nothing but the kit in front of you
 
 When you power on your telemetry board it will broadcast a Wi-Fi SSID (network name); check your kit number for what SSID to expect.
 
-**Your telemetry board Wi-Di SSID and passcode is:** SSID: 'AVDASI2 - Kit X', Passcode: 'beyondrobotixX' where X is kit number (1-12)
+**Your telemetry board Wi-Fi SSID and passcode is:** SSID: 'AVDASI2 - Kit X', Passcode: 'beyondrobotixX' where X is kit number (1-12)
 
 !!! warning "Do NOT change the telemetry board Wi-Fi SSID or passcode"
 
