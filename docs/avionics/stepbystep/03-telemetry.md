@@ -11,13 +11,13 @@ We'll use a common WiFi chip called an ESP8266. It works in two modes, and **bot
 
 We'll start point-to-point, because it needs nothing but the kit in front of you.
 
-When you power on your telemetry board it will broadcast a WiFi SSID, but every board leaves the factory with the same one! In a room full of kits that means you can easily connect to, and reconfigure, another group's board.
+When you power on your telemetry board it will broadcast a Wi-Fi SSID (network name); check your kit number for what SSID to expect.
 
-**So the first thing you do is give yours a name of its own.** Pick something that identifies your group and your kit, for example `AVDASI2-Kit07-CoB`, and write it on the kit's label so you can find it again. Leave the password as the default, so that we can troubleshoot easily and reset the board for next year.
+**Your telemetry board wi-fi SSID and passcode is:** SSID: AVDASI2 - Kit X, Passcode: beyondrobotixX where X is kit number (1-12)
 
-!!! warning "Do this one group at a time"
+!!! warning "Do NOT change the telemetry board Wi-Fi SSID or passcode"
 
-    Until it's renamed, every board looks identical. Agree with the groups around you who is renaming theirs, and do it in turn — otherwise someone renames a board that isn't theirs, and nobody can tell whose is whose.
+    If SSIDs are changed, it may be hard to identify which wi-fi signal belongs to which kit, and you may end up clashing with someone else's wi-fi signal. It is a pain to reset the telemetry board if you change the passcode and can no longer gain access.
 
 !!! info "The lab has its own network: not eduroam"
 
