@@ -114,6 +114,10 @@ Avionics
 **Tim Ward**
 Avionics
 
+![](../../docs/assets/people/carter.jpg)
+**Robin Carter**
+Avionics
+
 ![](../../docs/assets/people/graham.jpg)
 **Mark Graham**
 Mechanisms
@@ -130,7 +134,7 @@ they were sent - Burns, Ward, Graham, Maes. Swap the files in
 docs/assets/people/ if any of them is wrong.
 
 Robin Carter starts his PhD on 1 Oct and has flown these autopilots on the MSc
-Aerial Robotics project; mention him if useful.
+Aerial Robotics project - worth saying so when you introduce him.
 -->
 
 ---

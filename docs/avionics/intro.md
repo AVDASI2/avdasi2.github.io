@@ -16,6 +16,7 @@ This page carries the same material as the lecture, so you can read it back afte
 | **Dr Steve Bullock** | Avionics, Mechanisms |
 | **George Burns** | Avionics |
 | **Tim Ward** | Avionics |
+| **Robin Carter** | Avionics |
 | **Mark Graham** | Mechanisms |
 | **Vince Maes** | Mechanisms |
 
