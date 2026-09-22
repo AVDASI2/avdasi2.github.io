@@ -24,8 +24,8 @@ Anything marked **needs Tim** is a question about the kit that only you can answ
 | B4 | 03 | Every Kahuna ships with the same SSID, so in a room full of kits students would connect to, and rename, another group's board | **Settled 20 Sep** — students name their own board, one group at a time, with the kit number in the name. The page also now says the lab uses its own autonomous network, not eduroam |
 | B5 | 02 | Mission Planner is Windows-only and the page only offers unsupported workarounds | **Settled 20 Sep** — one Windows laptop per group, installed before Friday, announced at the intro lecture. The Mac notes on page 02 still need collapsing into an aside |
 | B6 | 00 | The Kit page said nothing actionable — no contents, no issue process, no locations | **Settled** — rewritten, with the kit list pulled out to its own page |
-| B7 | 05 | The "small" and "large" servo links both point at the same product (DFRobot SER0047), so the "up to 4 A" figure has no source | **Open** — **needs Tim**, see K6 |
-| B8 | 04 | The page never says what voltage the bench supply is, how it reaches the power module, or where the BEC's input comes from. These are the connections that damage hardware rather than merely confuse | **Open** — **needs Tim**. This is the most important one on the page |
+| B7 | 05 | The "small" and "large" servo links both pointed at the same product (DFRobot SER0047), so the "up to 4 A" figure had no source | **Partly done 22 Sep** — the duplicate link is gone and the page now points at the Feetech data sheet. Still **needs Tim** for the model, see K6 |
+| B8 | 04 | The page never says what voltage the bench supply is, or where the UBEC's input comes from. These are the connections that damage hardware rather than merely confuse | **Still open** — **needs Tim**. The 22 Sep kit list names the UBEC and settles the POWER2 port, both now in the guide, but **the supply voltage is still not stated anywhere**. This is the most important open item |
 
 ## 2. Should fix
 
@@ -49,19 +49,25 @@ Already fixed in commit `a4ee413`: every CubePilot link had died when they reorg
 
 ## 3. Kit cross-check — **needs Tim**
 
-Checked against `AVDASI2 Avionics kits.xlsx` from the 2025-26 folder, on the assumption the kit is unchanged for 2026-27. Please confirm that assumption first.
+Updated against Tim's revised kit list, committed 22 September (`be0d345`). That commit answered four of these outright; three are still open, and one has changed shape.
 
-| # | Finding | What we need |
+| # | Finding | Status |
 |---|---|---|
-| K1 | **The kit list has no BEC**, but step 05 says to use "the provided BEC" to power the servo rail | **Assumed** the kits do include BECs and step 05 stands. Confirm the model and how the servo rail is actually powered |
-| K2 | The older sheet lists an "AC-DC **5 V** 5 A" supply. The Power Brick Mini is a step-down regulator for battery inputs, so fed 5 V it cannot produce its regulated ~5.3 V output and the Cube may brown out. The print list only says "power supply with red and yellow XT60" | The supply voltage, and which XT60 goes where. This settles B8 |
-| K3 | The Power Brick Mini connects through **POWER2**, but `99-summary` says POWER1 and step 04 names no port | Confirm, then name the port in 04 |
-| K4 | The kit has the **ADS-B carrier board**, not the standard one. Pinouts match apart from the receiver | Confirm, so page 01 can name the board students actually see |
-| K5 | RC issued is a **FrSky TW MX receiver** plus cable, transmitters held separately. That makes the hidden `06-rc` page (X9 Lite / Archer R6) out of date | Confirm, and say whether RC belongs in the minimum working example |
-| K6 | The large servo is "Feetech FT6355M" in one sheet and "FeeTech Servo" in the other. Horns and metal mounts appear on the contents sheet but not the print list students sign | The model, for the stall-current figure (B7), and whether horns and mounts go on the print list |
-| K7 | The ADC comes with a loose 10-pin header strip and a Dupont-to-JST cable. The guide never says whether the header needs soldering, or how the cable reaches `I2C2` | Who solders it, where, and the wiring |
-| K8 | The 2025-26 prep sheet had outstanding jobs: heatshrink the RC receivers, adapt the RC cables, reprogram the transmitters, print laminated part lists, XT60 soldering | Confirm these are done for 2026-27 |
-| K9 | 12 kits (16 in stock, 4 spare), roughly 30 students, so 2–3 per kit. Kits are numbered | Confirm the numbering, since the SSID naming in B4 relies on it |
+| K1 | The kit list had no BEC, but step 05 tells students to use "the provided BEC" | **Resolved.** The list now has a **Matek Systems UBEC**, orange, with two red/black wire pairs. Step 05 now names it |
+| K2 | The older sheet listed an "AC-DC **5 V** 5 A" supply. The Power Brick Mini is a step-down regulator for battery inputs, so fed 5 V it cannot produce its regulated ~5.3 V output and the Cube may brown out | **Still open, and now the blocker for B8.** The revised list still describes the supply only as "black power supply box with red and yellow XT60 connectors". **What voltage is it, and which XT60 goes where?** |
+| K3 | The Power Brick Mini connects through POWER2, but `99-summary` says POWER1 and step 04 named no port | **Resolved.** The kit's cable is labelled "POWER2". Step 04 now says so; `99-summary` is hidden and still needs correcting before it returns |
+| K4 | The kit has the ADS-B carrier board rather than the standard one | **Resolved.** Confirmed on the list. Page 01 could still name it so the board matches the words |
+| K5 | RC hardware disagreed between pages | **Resolved.** The kit has a **FrSky TW-MX receiver** and an RC cable; transmitters are held separately. So the hidden `06-rc` page (X9 Lite / Archer R6) is out of date. Still to decide whether RC belongs in the minimum working example |
+| K6 | The large servo is "Feetech FT6355M" in one sheet and "FeeTech Servo" in the other; horns and metal mounts appear on one sheet but not the other | **Still open.** The revised list says "Feetech servo" with no model, and lists a servo horns pack (×2) but no metal mounts. **Which model, and do the mounts get issued?** The stall-current figure in step 05 depends on it |
+| K7 | The ADC came with a loose 10-pin header strip and a Dupont-to-JST cable, and the guide never said whether the header needs soldering | **Changed.** The **10-pin header has been removed from the list**, and so have the Cube Orange+ screws. Were those dropped deliberately, or lost in the edit? If there is no header, page 08 needs to say how the ADC is actually wired |
+| K8 | The 2025-26 prep sheet had outstanding jobs: heatshrink the receivers, adapt the RC cables, reprogram the transmitters, laminated part lists, XT60 soldering | **Still open.** Not addressed by the list. Are these done for 2026-27? |
+| K9 | Kit count and numbering, which the SSID naming in B4 relies on | **Resolved.** 12 kits, numbered |
+
+### Queries on the revised list itself
+
+- The **Servos** box now contains the mains cable and the power supply. That may well be right if the bulky items travel together, but it reads oddly next to a **Power** box holding the Power Brick Mini, POWER2 cable and UBEC. Worth a second look.
+- **Cube Orange+ screws** and the **10-pin header** have both gone from the list. See K7.
+- The Kahuna is now "Kahuna ESP" rather than "Kahuna Wi-Fi telemetry". Page 03 still calls it Wi-Fi telemetry, which is fine for describing what it does, but the name on the list is what students will read on the box.
 
 ## 4. The bench test
 
@@ -69,7 +75,7 @@ One kit, reset to the state a student would find it in, worked through from the 
 
 **(a) The arming question — about ten minutes.** Can AUX1 be moved from the Servo/Relay tab with the safety off and **not** armed? Does arming fail after the Sub → Plane reset? And does an output with a function already assigned give "Channel x is already in use"? That answers B1 and B2, and B1 decides what the week 2 servo session has to contain.
 
-**(b) The full run — about two hours.** Follow pages 00 to 05 exactly as written, timing each page, renaming the telemetry SSID as page 03 now describes, connecting over UDP, and noting every point where a student would have to guess. **Photograph the complete bench wiring** — that settles B8 and would improve the intro deck's system diagram, which is currently drawn from assumption rather than from the bench.
+**(b) The full run — about two hours.** Follow pages 00 to 05 exactly as written, timing each page, renaming the telemetry SSID as page 03 now describes, connecting over UDP, and noting every point where a student would have to guess. **Photograph the complete bench wiring** — that settles B8 and would improve the intro deck's system diagram, which is currently drawn from assumption rather than from the bench. Now that the UBEC is confirmed, the one thing the photograph still has to establish is the supply voltage and which XT60 feeds what (K2).
 
 If neither happens, Friday's workshop becomes the bench test by default: one kit goes through 00–05 at the front before groups start. That is the fallback, not the plan. In that case the front-led section has to describe the bench wiring from the assumed setup, and must **say that it is an assumption** — a room about to wire up bench power should not be handed a guess as though it were a fact.
 
