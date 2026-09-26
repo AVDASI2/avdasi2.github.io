@@ -25,7 +25,7 @@ Anything marked **needs Tim** is a question about the kit that only you can answ
 | B5 | 02 | Mission Planner is Windows-only and the page only offers unsupported workarounds | **Settled 20 Sep** — one Windows laptop per group, installed before Friday, announced at the intro lecture. The Mac notes on page 02 still need collapsing into an aside |
 | B6 | 00 | The Kit page said nothing actionable — no contents, no issue process, no locations | **Settled** — rewritten, with the kit list pulled out to its own page |
 | B7 | 05 | The "small" and "large" servo links both pointed at the same product (DFRobot SER0047), so the "up to 4 A" figure had no source | **Partly done 22 Sep** — the duplicate link is gone and the page now points at the Feetech data sheet. Still **needs Tim** for the model, see K6 |
-| B8 | 04 | The page never says what voltage the bench supply is, or where the UBEC's input comes from. These are the connections that damage hardware rather than merely confuse | **Still open** — **needs Tim**. The 22 Sep kit list names the UBEC and settles the POWER2 port, both now in the guide, but **the supply voltage is still not stated anywhere**. This is the most important open item |
+| B8 | 04 | The page never said what voltage the bench supply is, or where the UBEC's input comes from. These are the connections that damage hardware rather than merely confuse | **Mostly closed 26 Sep** — Steve confirms the DC supply is **12 V**, and page 04 now says so alongside the POWER2 port and the UBEC. Still open: **which XT60 goes where**, and a photograph of the finished bench wiring |
 
 ## 2. Should fix
 
@@ -54,7 +54,7 @@ Updated against Tim's revised kit list, committed 22 September (`be0d345`). That
 | # | Finding | Status |
 |---|---|---|
 | K1 | The kit list had no BEC, but step 05 tells students to use "the provided BEC" | **Resolved.** The list now has a **Matek Systems UBEC**, orange, with two red/black wire pairs. Step 05 now names it |
-| K2 | The older sheet listed an "AC-DC **5 V** 5 A" supply. The Power Brick Mini is a step-down regulator for battery inputs, so fed 5 V it cannot produce its regulated ~5.3 V output and the Cube may brown out | **Still open, and now the blocker for B8.** The revised list still describes the supply only as "black power supply box with red and yellow XT60 connectors". **What voltage is it, and which XT60 goes where?** |
+| K2 | The older sheet listed an "AC-DC **5 V** 5 A" supply, which the Power Brick Mini could not have regulated from | **Resolved 26 Sep.** The supply is **12 V DC**, so the 5 V figure on the old sheet was wrong or referred to something else. The kit list and page 04 now say 12 V |
 | K3 | The Power Brick Mini connects through POWER2, but `99-summary` says POWER1 and step 04 named no port | **Resolved.** The kit's cable is labelled "POWER2". Step 04 now says so; `99-summary` is hidden and still needs correcting before it returns |
 | K4 | The kit has the ADS-B carrier board rather than the standard one | **Resolved.** Confirmed on the list. Page 01 could still name it so the board matches the words |
 | K5 | RC hardware disagreed between pages | **Resolved.** The kit has a **FrSky TW-MX receiver** and an RC cable; transmitters are held separately. So the hidden `06-rc` page (X9 Lite / Archer R6) is out of date. Still to decide whether RC belongs in the minimum working example |
