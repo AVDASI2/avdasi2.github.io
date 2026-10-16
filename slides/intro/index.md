@@ -1,6 +1,6 @@
 ---
 marp: true
-theme: flightlab
+theme: avdasi2
 paginate: true
 header: "AVDASI 2 · Avionics & Mechanisms"
 footer: "Dr. Steve Bullock · Introduction"

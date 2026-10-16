@@ -1,4 +1,6 @@
 # Marp CLI configuration for the lecture decks in slides/.
-themeSet: node_modules/cade30008-marp-theme/themes
+themeSet:
+  - node_modules/cade30008-marp-theme/themes
+  - slides/themes          # avdasi2.css: the shared theme plus this unit's mark
 html: true              # needed for applet iframes and <div class="columns">
 allowLocalFiles: true   # lets PDF export read images from docs/

@@ -1,0 +1,47 @@
+/* @theme avdasi2 */
+
+/*
+ * AVDASI 2 on top of the shared CADE30008 Marp theme.
+ *
+ * The only change is the unit's mark, added to the right-hand end of the
+ * header band where the Flight Lab wordmark used to sit. Everything else -
+ * geometry, palette, the University crest at the left - comes from the
+ * imported theme, so bumping that theme still carries through.
+ *
+ * The mark is embedded rather than linked so the deck is self-contained in
+ * both the HTML and the PDF export. It is the level version, matching the site
+ * header; the pitched version is the browser tab icon. Drawn white, because
+ * this end of the band is red.
+ */
+
+@import "flightlab";
+
+:root {
+  --avdasi-mark: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 118"><g fill="white"><rect x="10" y="72" width="104" height="42" rx="21"/><path d="M152 53.5 L170 0 H188 V53.5 Z"/></g><path d="M22 63 H192" stroke="white" stroke-width="9" stroke-linecap="round"/><path d="M64 0 V58" stroke="white" stroke-width="11" stroke-linecap="round"/></svg>');
+  --avdasi-mark-size: 73px 43px;
+  --avdasi-mark-at: 988px 17px;
+}
+
+/* The imported theme stacks the crest, the edge artwork and the two red
+   fields on `section`. Restating the stack is the only way to add a layer to
+   it; the four original layers are unchanged and in the same order. */
+section {
+  background-image:
+    var(--avdasi-mark),
+    var(--fl-img-logo-bristol-white),
+    var(--fl-img-edge-header),
+    linear-gradient(var(--fl-red), var(--fl-red)),
+    linear-gradient(var(--fl-red), var(--fl-red));
+  background-position:
+    var(--avdasi-mark-at),
+    var(--fl-crest-at),
+    100% 0,
+    0 0,
+    0 100%;
+  background-size:
+    var(--avdasi-mark-size),
+    var(--fl-crest),
+    204px var(--fl-band),
+    calc(var(--fl-band-fill) + var(--fl-overlap)) var(--fl-band),
+    100% var(--fl-rule);
+}
