@@ -67,9 +67,25 @@
 
 /* The theme swaps this in for the stock plane icon that `icon: lucide/plane`
    puts beside Home, and paints it as a mask, so it follows the nav's colour in
-   both schemes. Being a mask it uses alpha only, so the pivot is left out
-   here - at this size it would be a single pixel. The full mark, pivot and
-   all, is docs/assets/brand/logo.svg. */
+   both schemes. The pitched version, square, to match the browser tab. Being a
+   mask it uses alpha only, so the pivot is left out - at this size it would be
+   a single pixel. The full mark is docs/assets/brand/favicon.svg. */
 :root {
-  --fl-nav-mark: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 118"><g fill="black"><rect x="10" y="72" width="104" height="42" rx="21"/><path d="M152 53.5 L170 0 H188 V53.5 Z"/></g><path d="M22 63 H192" stroke="black" stroke-width="9" stroke-linecap="round"/><path d="M64 0 V58" stroke="black" stroke-width="11" stroke-linecap="round"/></svg>');
+  --fl-nav-mark: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><g transform="translate(0,30)"><path d="M64 0 V64" stroke="black" stroke-width="11" stroke-linecap="round"/><g transform="rotate(14 64 70)"><g fill="black"><rect x="10" y="79.5" width="104" height="42" rx="21"/><path d="M152 60.5 L170 7 H188 V60.5 Z"/></g><path d="M22 70 H192" stroke="black" stroke-width="9" stroke-linecap="round"/></g></g></svg>');
+}
+
+/* ---------- The unit's mark in place of the crest ---------- */
+
+/* The theme puts the University crest in the header and in the drawer title,
+   and hides whatever `logo` points at. This unit shows its own mark there
+   instead. Revert by deleting this block: the crest comes back on its own,
+   because the theme's rule is still underneath. */
+.md-header .md-logo {
+  width: 2.6rem;
+  background: url("../assets/brand/logo.svg") no-repeat center / contain;
+}
+
+.md-nav .md-nav__title[for="__drawer"] .md-logo {
+  width: 3.4rem;
+  background: url("../assets/brand/logo.svg") no-repeat center / contain;
 }
