@@ -24,9 +24,9 @@ Kits are numbered, and there are 12 of them. Everything in the list is signed ou
 | Misc. | Shaft-mount potentiometer | 2 | Small white components mounted on pink foam | [Bourns 3382](https://www.bourns.com/docs/product-datasheets/3382.pdf) | [ArduPilot](https://ardupilot.org/plane/docs/common-analog-pins.html) |
 | Misc. | RC cable | 1 | Small 8-wire cable with a variety of connectors on one end | — | — |
 | Misc. | FrSky TW-MX receiver | 1 | Red PCB with 2 antennas | [FrSky](https://www.frsky-rc.com/product/tw-mx/) | [Manual](https://www.frsky-rc.com/wp-content/uploads/Downloads/Amanual/TW%20MX%20Manual.pdf) |
-| Servos | 9 g micro servo | 2 | Small blue servos with orange/red/black wires | — | — |
+| Servos | 9 g micro servo | 2 | Small blue servos with orange/red/black wires | [Feetech FS90](https://servodatabase.com/servo/feetech/fs90) | — |
 | Servos | Servo horns pack | 2 | Small clear bags of white plastic servo horns | — | — |
-| Servos | Feetech servo | 1 | Large servo in a white and black box | — | — |
+| Servos | Feetech servo | 1 | Large servo in a white and black box | [Feetech FT7135M](https://servodatabase.com/servo/feetech/ft7135m) | — |
 | Servos | Mains cable | 1 | UK 3-pin mains plug to 2-pin kettle plug | — | — |
 | Servos | Power supply | 1 | Black power supply box with red and yellow XT60 connectors, **12 V DC** | — | — |
 
