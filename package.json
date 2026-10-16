@@ -15,6 +15,6 @@
   },
   "devDependencies": {
     "@marp-team/marp-cli": "^4.5.1",
-    "flightlab-marp-template": "github:BristolFlightLab/flightlab-marp-template#v2.0.0"
+    "cade30008-marp-theme": "github:CADE30008/cade30008-marp-theme#v1.0.0"
   }
 }

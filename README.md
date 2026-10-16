@@ -2,7 +2,7 @@
 
 Avionics resources for AVDASI 2 (CADE20005, Aerospace Vehicle Design and Systems Integration) at the University of Bristol, published at <https://avdasi2.github.io>.
 
-The site is built with [Zensical](https://zensical.org) in the Bristol Flight Lab theme shared with the CADE30008 Flight Dynamics & Control course. Slides use the [Flight Lab Marp theme](https://github.com/BristolFlightLab/marp-template), pinned to a release tag in `package.json`.
+The site is built with [Zensical](https://zensical.org) in the [CADE30008 theme](https://github.com/CADE30008/cade30008-zensical-theme), shared with the Flight Dynamics & Advanced Control unit. Slides use the [CADE30008 Marp theme](https://github.com/CADE30008/cade30008-marp-theme), pinned to a release tag in `package.json`. Both are the Flight Lab themes without the Flight Lab mark.
 
 ## Quick start
 
@@ -66,7 +66,7 @@ One-time set-up: this repository is `AVDASI2/avdasi2.github.io`, and its
 |---|---|
 | `zensical.toml` | Site configuration and navigation |
 | `docs/` | Site pages |
-| `theme/` | The [Flight Lab Zensical theme](https://github.com/BristolFlightLab/flightlab-zensical-theme), a submodule pinned to a tag. Don't edit it here |
+| `theme/` | The [CADE30008 Zensical theme](https://github.com/CADE30008/cade30008-zensical-theme), a submodule pinned to a tag. Don't edit it here |
 | `docs/stylesheets/course.css` | AVDASI 2 additions to the theme |
 | `docs/code/` | Example code, fetched from [avdasi2-avionics-demo](https://github.com/AVDASI2/avdasi2-avionics-demo) at build time. Not committed |
 | `slides/` | Marp deck sources, built into `docs/slides/` with `npm run slides`. Built decks aren't committed; CI builds them |

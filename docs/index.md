@@ -15,7 +15,7 @@ As of the current teaching year, this site is largely for the [Avionics](avionic
 
 ## Site info
 
-This site is part of the [AVDASI 2 GitHub org](https://github.com/AVDASI2), which contains a number of useful repositories. These pages are built with [Zensical](https://zensical.org), in the Bristol Flight Lab theme.
+This site is part of the [AVDASI 2 GitHub org](https://github.com/AVDASI2), which contains a number of useful repositories. These pages are built with [Zensical](https://zensical.org), in the theme shared with the CADE30008 Flight Dynamics & Advanced Control unit.
 
 We count visits with [GoatCounter](https://www.goatcounter.com), which sets no cookies. What it stores is a daily tally per page, with the country, browser, screen width and referring site counted separately, so they can't be combined back into a person. Your IP address and browser string are held in memory for eight hours so a reload isn't counted twice, and neither is written to disk. Their [privacy page](https://www.goatcounter.com/help/privacy) sets out the detail. We look at it to see which pages are used.
 
