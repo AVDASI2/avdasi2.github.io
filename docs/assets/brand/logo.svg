@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 118" role="img"
+     aria-label="The AVDASI 2 aircraft in profile, hanging from its wind tunnel mount">
+  <title>AVDASI 2</title>
+  <!-- White, for the red header bar. The red version is favicon.svg.
+
+       A caricature of the unit's own test article, drawn from its profile: the
+       payload pod slung under a long slender boom, the swept fin at the tail,
+       and the tunnel mount dropping from above onto the pivot the aircraft
+       pitches about. Proportions are compressed along the length so the pod
+       and the fin carry the shape; the horizontal tail is left out. -->
+  <g fill="#ffffff">
+    <rect x="10" y="72" width="104" height="42" rx="21"/>
+    <path d="M152 53.5 L170 0 H188 V53.5 Z"/>
+  </g>
+  <path d="M22 63 H192" stroke="#ffffff" stroke-width="9" stroke-linecap="round"/>
+  <path d="M64 0 V58" stroke="#ffffff" stroke-width="11" stroke-linecap="round"/>
+  <!-- The pivot reads as a hole, so this mark needs a flat background behind it. -->
+  <circle cx="64" cy="63" r="6.5" fill="#b01c2e"/>
+</svg>

@@ -62,3 +62,14 @@
   outline-offset: 2px;
   border-radius: 2px;
 }
+
+/* ---------- The unit's mark on the Home entry ---------- */
+
+/* The theme swaps this in for the stock plane icon that `icon: lucide/plane`
+   puts beside Home, and paints it as a mask, so it follows the nav's colour in
+   both schemes. Being a mask it uses alpha only, so the pivot is left out
+   here - at this size it would be a single pixel. The full mark, pivot and
+   all, is docs/assets/brand/logo.svg. */
+:root {
+  --fl-nav-mark: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 118"><g fill="black"><rect x="10" y="72" width="104" height="42" rx="21"/><path d="M152 53.5 L170 0 H188 V53.5 Z"/></g><path d="M22 63 H192" stroke="black" stroke-width="9" stroke-linecap="round"/><path d="M64 0 V58" stroke="black" stroke-width="11" stroke-linecap="round"/></svg>');
+}

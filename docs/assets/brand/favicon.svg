@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img"
+     aria-label="The AVDASI 2 aircraft pitched nose-up on its wind tunnel mount">
+  <title>AVDASI 2</title>
+  <!-- Red, for the browser tab. The white version is logo.svg.
+
+       The same caricature, pitched 14 degrees nose-up about the pivot while
+       the mount stays vertical - which is what the rig is free to do. Square,
+       because a favicon is, and the pitch is what lets a 1.75:1 aircraft fill
+       one. Below about 20px the gaps either side of the boom close up and it
+       reads as a solid silhouette; that is the size, not the drawing. -->
+  <g transform="translate(0,30)">
+    <path d="M64 0 V64" stroke="#b01c2e" stroke-width="11" stroke-linecap="round"/>
+    <g transform="rotate(14 64 70)">
+      <g fill="#b01c2e">
+        <rect x="10" y="79.5" width="104" height="42" rx="21"/>
+        <path d="M152 60.5 L170 7 H188 V60.5 Z"/>
+      </g>
+      <path d="M22 70 H192" stroke="#b01c2e" stroke-width="9" stroke-linecap="round"/>
+    </g>
+    <circle cx="64" cy="70" r="6.5" fill="#ffffff"/>
+  </g>
+</svg>

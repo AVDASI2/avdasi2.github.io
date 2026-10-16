@@ -50,10 +50,11 @@ language = "en"
 # dist/ rather than the repository root. A file in docs/ wins over the same
 # path here, so one file can be overridden without forking the theme.
 custom_dir = "theme/dist"
-# The University crest, from the theme. CADE30008 uses a mark of its own here;
-# this unit has none, so it shows the crest the header already carries.
-logo = "assets/brand/logo-bristol-white.svg"
-favicon = "assets/brand/logo-bristol.svg"
+# The unit's own mark: its test article hanging from the tunnel mount, drawn
+# from the aircraft's profile. White in the header bar, red and pitched in the
+# browser tab. Both live in docs/, which wins over the theme's own assets/brand.
+logo = "assets/brand/logo.svg"
+favicon = "assets/brand/favicon.svg"
 features = [
   "content.action.edit",
   "content.code.annotate",

@@ -1,3 +1,7 @@
+---
+icon: lucide/plane
+---
+
 # AVDASI 2
 
 The AVDASI 2[^1] design, build and test unit is a keystone of the Aerospace MEng and BEng programmes at the University of Bristol.
