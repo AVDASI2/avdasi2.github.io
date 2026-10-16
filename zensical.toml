@@ -5,7 +5,7 @@ site_author = "AVDASI 2 teaching team, University of Bristol"
 site_url = "https://avdasi2.github.io/"
 repo_url = "https://github.com/AVDASI2/avdasi2.github.io"
 edit_uri = "edit/main/docs/"
-copyright = "AVDASI 2 &middot; Bristol Flight Lab &middot; University of Bristol"
+copyright = "AVDASI 2 &middot; University of Bristol"
 
 nav = [
   { "Home" = "index.md" },
