@@ -1,46 +1,95 @@
-## Servo power
+# Controlling Servos via Mission Planner
 
-We'll be using servo motors to move control surfaces. These can draw significant current when 'stalled', i.e. the servo is trying to move but has reached the end of a mechanism's movement (the kit's [9 g micro servos](https://servodatabase.com/servo/feetech/fs90) stall at around 0.8 A each, and the [large Feetech servo](https://servodatabase.com/servo/feetech/ft7135m) up to 4A (est) — its stall current isn't published, so treat that as an estimate and leave yourself margin). Because we don't want to have to overengineer or burn out our microcontrollers and small circuitry in the flight controller, we need to provide separate power to the servo 'rails'.
+This page walks you through setting up your system so that you can control a servo manually from Mission Planner's Servo/Relay tab.
 
-The servo pins on the CubePilot are along the bottom edge of the carrier board. All of the positive (+) pins and all of the negative (-) pins are connected to one another (hence 'rail'), and the signal (S) pins provide a [standard pulse-width modulated control signal](https://en.wikipedia.org/wiki/Servo_control). Each servo channel consists of three vertical pins, and the channels are labelled with their numbers.
+!!! info "Minimum hardware requirements"
 
-We'll use a Battery Elimination Circuit (BEC), so-called because it eliminates the need for separate motor/servo batteries, to provide voltage to the servo rails. Use the **Matek UBEC** in your kit — the orange one with two red/black wire pairs — ensure it's set up to provide the correct voltage for your servos (start with 5V, some high-power servos take 7V or more), and connect its output to any of the servo channels, **taking care to ensure the correct polarity**:
+    Everything here is in your kit; see the [kit list](../kit-list.md) for what each item looks like.
 
-* negative (-): black (or sometimes brown) wire
-* positive (+): red wire
-* signal (S): white or orange wire
+    * Cube Orange+ on its carrier board
+    * USB/buzzer cable, and a USB cable to your laptop
+    * Power supply (12 V DC) and mains cable
+    * Power Brick Mini and POWER2 cable
+    * UBEC
+    * One servo: a blue 9 g micro servo, or the large black Feetech servo
+    * A laptop with Mission Planner installed
 
+!!! info "Start from a freshly flashed Cube"
 
-## Connecting servos
+    These instructions assume a newly flashed Cube. If you run into problems following them, re-flash your Cube to Sub (submarine), then back to Plane. As explained on the [Mission Planner](02-missionplanner.md) page, this makes sure **all** parameters are reset to default: the "Reset to Defaults" button doesn't always do a thorough enough job.
 
-This is where we start diverging significantly from the standard use of Ardupilot/Mission Planner/the Cube. You'll only be 'flying' your UAV assemblies in the wind tunnel, and not assembled as a full aircraft, so we will be diverging from the standard setup instructions. It's worth having a look at the [First Time Setup docs](https://ardupilot.org/plane/docs/common-basic-operation.html), but we'll only be using a subset.
+## Connecting the servo
 
-Let's just get one servo moving. There are two 'types' of servo output on the Cube - 'main' are for flight control surfaces (or ESCs/motors for multirotors), and 'aux' are for auxiliary servos, e.g. to press a camera shutter, drop a payload, or release an emergency parachute.
+!!! warning "Power servos from the UBEC, not from USB"
 
-We'll configure flight control servos later. For now, connect a servo to AUX1 and we'll move it manually using Mission Planner.
+    Your laptop's USB port can't supply the current a servo draws, particularly when it stalls. Power the servo rail from the UBEC.
 
-![Cube servo ports](assets/cube-servo-ports.png)
+    Servos can draw significant current when 'stalled', i.e. the servo is trying to move but has reached the end of a mechanism's movement. The kit's [9 g micro servos](https://servodatabase.com/servo/feetech/fs90) stall at around 0.8 A each, and the [large Feetech servo](https://servodatabase.com/servo/feetech/ft7135m) up to 4 A (est): its stall current isn't published, so treat that as an estimate and leave yourself margin.
 
-## Moving servos
+1. **Set the UBEC's output voltage.** Start with 5 V.
+2. **Connect the UBEC's output to any servo channel** on the carrier board, taking care with polarity. All the positive (+) pins are connected to one another, as are all the negative (-) pins, so one connection powers the whole rail.
+3. **Plug the servo into MAIN OUT 5**, the right way round:
 
-We need to:
+    * top: negative (-), black (or sometimes brown) wire
+    * middle: positive (+), red wire
+    * bottom: signal (S), white or orange wire
 
-1. virtually flip the 'safety switch' (this would be a switch on the UAV if you were flying a real vehicle)
-2. 'arm' the vehicle (this would be done via a switch on the safety pilot's radio transmitter)
-3. move the servo using the Mission Planner interface (this could be a pilot switch, or an automated command)
+    Your cable colours may vary, and that's fine: many other colour schemes exist. The polarity is what counts, not the colour.
 
+<!-- in-progress:start -->
+*[Placeholder: where the UBEC's input connects to the power supply. Still open as ISSUES.md B8, "which XT60 goes where".]*
+<!-- in-progress:end -->
 
-`Ctrl F` opens up a settings menu. Click `toggle servo safety` as seen below to turn off the safety. 
+## Setting the parameters
+
+1. **Connect your Cube** to your laptop with the USB/buzzer cable.
+2. **Connect Mission Planner**, choosing `AUTO` in the connection drop-down menu. Mission Planner will detect which COM port to use.
+3. **Open the full parameter list**: go to the `CONFIG` tab, then `Full Parameter List`.
+4. **Search for each parameter** in the table below, and set it to the value shown.
+5. **Write the parameters** with `Write Params`, and reboot if prompted. You can reboot with `reboot pixhawk` in the ++ctrl+f++ menu, or with a power cycle.
+
+| Parameter | Value | Description |
+|---|---|---|
+| `THR_FAILSAFE` | 0 | The RC transmitter connection failsafe. Disabling it allows us to arm the Cube without an RC receiver connected. |
+| `SERVO5_FUNCTION` | 0 | Disables Servo 5's automatic function, allowing us to take manual control. This should be the default. |
+
+## Moving the servo
+
+**Toggle the safety switch.** Press ++ctrl+f++ and click `Toggle Saftey Switch`. This allows a PWM signal to be sent to the servo.
 
 ![Toggle safety MP](assets/toggle_safety-MP.png)
 
-In `Actions` there’s the arm button as seen below. This panel also allows you to manually set the flight mode.
-
-![Arm MP](assets/arm-MP.png)
-
-The `Servo/Relay` panel allows you to manually move servos in Mission Planner.
+**Open the Servo/Relay tab**, in the bottom left of the `DATA` tab.
 
 ![servo MP](assets/servo-MP.png)
 
-!!! tip "Make sure safety toggle is off or you won't be able to move anything"
-    You'll also need to have set up the parameters for the servo you want to move
+You can now use this tab to change the PWM signal being sent to the servo connected to MAIN OUT 5.
+
+!!! note "Check the signal in Servo Output"
+
+    `SETUP` › `Mandatory Hardware` › `Servo Output` shows the PWM signal on each output. If output 5 changes when you use the Servo/Relay tab but the servo doesn't move, the signal is leaving the Cube, so check the servo's wiring and power.
+
+    <!-- Screenshot to come. Suggested name, so the link is ready:
+    ![Servo output MP](assets/servo_output-MP.png)
+    -->
+
+## Troubleshooting
+
+If the servo doesn't move, work through these in order.
+
+1. **Check the servo is plugged into MAIN OUT 5**, the right way round: see [Connecting the servo](#connecting-the-servo).
+2. **Check the servo is getting power from the BEC**, by using a multimeter to test that the MAIN OUT 5 pins are powered.
+3. **Reboot the Cube** from Mission Planner.
+4. **Power cycle the Cube**: unplug the power, plug it back in, and reconnect Mission Planner.
+5. **Try arming the Cube**: in the `DATA` tab, open the `Actions` tab in the bottom left, use FORCE ARM, and try controlling the servo again.
+
+    !!! warning "Force arming skips the safety checks"
+
+        Force arming tells the Cube to arm even though its pre-arm checks have failed. That's acceptable on the bench with only a servo connected, but never with a motor or propeller attached. Disarm with `Arm/ Disarm` when you've finished.
+
+    <!-- Force-arm screenshot to come; it replaces arm-MP.png here. -->
+    ![Arm MP](assets/arm-MP.png)
+
+6. **Re-flash the Cube** to Sub, then back to Plane, and follow the steps on this page again.
+
+Once your servo moves from Mission Planner, you're ready to control it from a script. Head to the next step using the links below or to the left.
