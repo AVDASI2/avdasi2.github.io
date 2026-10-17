@@ -79,14 +79,17 @@ If the servo doesn't move, work through these in order.
 2. **Check the servo is getting power from the BEC**, by using a multimeter to test that the MAIN OUT 5 pins are powered.
 3. **Reboot the Cube** from Mission Planner.
 4. **Power cycle the Cube**: unplug the power, plug it back in, and reconnect Mission Planner.
-5. **Try arming the Cube**: in the `DATA` tab, open the `Actions` tab in the bottom left, use FORCE ARM, and try controlling the servo again.
+5. **Try arming the Cube**: in the `DATA` tab, open the `Actions` tab in the bottom left and click `Arm/ Disarm`.
+
+    ![Arm MP](assets/arm-MP.png)
+
+    If arming fails, Mission Planner asks whether you want to force arm. Click `Force Arm`, then try controlling the servo again.
+
+    ![Force arm MP](assets/force_arm-MP.png)
 
     !!! warning "Force arming skips the safety checks"
 
         Force arming tells the Cube to arm even though its pre-arm checks have failed. That's acceptable on the bench with only a servo connected, but never with a motor or propeller attached. Disarm with `Arm/ Disarm` when you've finished.
-
-    <!-- Force-arm screenshot to come; it replaces arm-MP.png here. -->
-    ![Arm MP](assets/arm-MP.png)
 
 6. **Re-flash the Cube** to Sub, then back to Plane, and follow the steps on this page again.
 
