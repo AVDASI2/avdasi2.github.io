@@ -1,77 +1,96 @@
-# Lua servo walkthrough
+# Controlling Servos Using a Lua Script
 
-<!-- TEMPLATE. Text is from your notes, verbatim apart from formatting.
-     Every *[Placeholder: …]* is a gap your notes don't cover. Delete the
-     comments and the notes box when the page is written. -->
+This page walks you through setting up your system so that you can control a servo from a Lua script running on the Cube. It assumes you can already move your servo from Mission Planner's Servo/Relay tab: if not, go back to [Servos via Mission Planner](05-servos.md) first.
 
 <!-- in-progress:start -->
-!!! abstract "Template notes: remove before publishing"
+!!! abstract "Draft notes: remove before publishing"
 
-    * Arming – uncertain. The admonition below says no arming is necessary; the recap says to try arming if it doesn't work.
-    * `STEST_CHAN` is "set to 1" in the steps but 5 in the recap and the example.
-    * The steps say `SCR_ENABLE`; the recap says `SCR_ENABLED`.
-    * The steps reboot before the script is mentioned; the recap uploads the script before rebooting.
-    * The script's own default for `STEST_CHAN` is 0 (line 22), and it does nothing until the channel is above 0. `STEST_FREQ` defaults to 1, which matches "Watch 1 cycle".
-    * The script is ArduPilot's own `servo_slew.lua` example, unchanged. It needs crediting, and ArduPilot's code is GPLv3.
-    * **C4** (`ISSUES.md`): page 06 has no first script, no upload over MAVFtp to `APM/scripts`, and no mention of `SCR_HEAP_SIZE`. This page can close it.
+    * The Servo Output screenshot is shared with page 05 (`assets/servo_output-MP.png`).
 <!-- in-progress:end -->
 
-*[Placeholder: introduction. What this page gets you to, and that it follows on from the [Servos via Mission Planner](05-servos.md) and [Lua Scripts](06-lua.md).]*
+We'll use one of ArduPilot's own example scripts, [:material-information:`servo_slew.lua`](https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/examples/servo_slew.lua). It moves a servo back and forth in a smooth sine wave, and it creates its own parameters so you can change how it moves from Mission Planner. The [next page](06b-lua-servo-explained.md) goes through how it works.
 
-<!-- Component: info admonition, as in 02-missionplanner.md -->
-!!! info "NO ARMING IS NECESSARY"
+!!! info "No arming needed"
 
-    Toggle Safety Switch must be done in ++ctrl+f++ menu
+    You don't need to arm the Cube for this. You do need to toggle the safety switch from the ++ctrl+f++ menu, as on the previous page.
 
-## The script
+## Enabling scripting
 
-*[Placeholder: where to get the script, and how to upload it.]*
+1. **Connect Mission Planner**, and open the full parameter list: the `CONFIG` tab, then `Full Parameter List`.
+2. **Search for `SCR_ENABLE`** and set it to 1.
+3. **Write the parameters** with `Write Params`.
+4. **Reboot the Cube**, with `reboot pixhawk` in the ++ctrl+f++ menu or with a power cycle.
 
-<!-- The script lives once, in assets/, and is pulled in here with a
-     snippets include, as examplecode.md does. It is ArduPilot's own example,
-     unchanged: libraries/AP_Scripting/examples/servo_slew.lua -->
+Rebooting with scripting enabled creates a `scripts` folder inside the `APM` folder on the Cube's SD card. If it doesn't appear, create it yourself.
+
+## Uploading the script
+
 :material-download: [servo_slew.lua](assets/servo_slew.lua)
 
-<!-- Suggested, not from your notes: credit the source.
-* [:material-information:ArduPilot - servo_slew.lua example](https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/examples/servo_slew.lua)
--->
+??? example "The script, `servo_slew.lua`"
 
-```lua title="servo_slew.lua"
---8<-- "docs/avionics/stepbystep/assets/servo_slew.lua"
-```
+    ```lua
+    --8<-- "docs/avionics/stepbystep/assets/servo_slew.lua"
+    ```
 
-## Setting up
+1. **Open MAVFtp**: the `CONFIG` tab, then `MAVFtp`. This lets you see the files on the Cube's SD card.
+2. **Open the `scripts` folder**: open the top folder, which has no name, then `APM`, then `scripts`.
 
-<!-- Component: numbered steps, as in 00-kit.md -->
-1. `SCR_ENABLE` – set to 1
-2. REBOOT
-3. `STEST_CHAN` – set to 1 – this is the servo output number the script will use. Therefore, set this value to the MAIN OUT pins that the servo is connected to. i.e. MAIN OUT = 5, `SERVO5_FUNCTION` = 0, `STEST_CHAN` = 5.
-4. **SETUP – MANDATORY HARDWARE – SERVO OUTPUT** – Watch 1 cycle between HIGH and LOW
+    ![MAVFtp MP](assets/mavftp-MP.png)
 
-*[Placeholder: screenshot of the Servo Output screen.]*
+3. **Upload the script**: right-click in `scripts`, choose `Upload`, and find `servo_slew.lua` on your laptop.
+4. **Reboot the Cube.** Scripts in `APM/scripts` start automatically every time the Cube boots.
+
+## Setting the script's parameters
+
+When the script runs for the first time it creates five new parameters, all starting with `STEST_`. To see them, go back to `Full Parameter List` and click `Refresh Params`, then search for `STEST`.
+
+| Parameter | Default | What it does |
+|---|---|---|
+| `STEST_CHAN` | 0 | The servo output the script drives. 0 means off. |
+| `STEST_PCT` | 100 | How far the servo swings, as a percentage of the full range. |
+| `STEST_PWM_MIN` | 1000 | The PWM signal at one end of the swing. |
+| `STEST_PWM_MAX` | 2000 | The PWM signal at the other end. |
+| `STEST_FREQ` | 1 | How many full swings per second. |
+
+**Set `STEST_CHAN` to 5**, to match the MAIN OUT pins your servo is plugged into, and write the parameters. `SERVO5_FUNCTION` must still be 0, as on the previous page.
+
+!!! warning "Mind the end stops"
+
+    By default the script swings the servo across its full range. If your servo is fitted to a mechanism, that may drive it into the end of its travel and stall it. Reduce `STEST_PCT`, or bring `STEST_PWM_MIN` and `STEST_PWM_MAX` closer together, before you connect anything to the servo horn.
+
+These parameters are saved on the Cube, so they survive reboots and edits to the script.
+
+## Watching it run
+
+**Toggle the safety switch**: press ++ctrl+f++ and click `Toggle Saftey Switch`. Your servo should now sweep back and forth, once a second.
+
+!!! note "Check the signal in Servo Output"
+
+    `SETUP` › `Mandatory Hardware` › `Servo Output` shows the PWM signal on each output in its `Position` bar. With the default settings, output 5 should move through one full cycle between high and low every second.
+
+    ![Servo output MP](assets/servo_output-MP.png)
+
+To stop the script moving the servo, set `STEST_CHAN` back to 0.
+
+## Troubleshooting
+
+If the servo doesn't move, work through these in order.
+
+1. **Check the servo moves from the Servo/Relay tab**, as on the [previous page](05-servos.md). If it doesn't, the problem isn't the script: follow that page's troubleshooting.
+2. **Check the script is running.** Look in the `Messages` tab, in the bottom left of the `DATA` tab, for any message mentioning Lua. An error there names the script and the line it failed on.
+3. **Check the `STEST_` parameters exist.** If they don't appear after `Refresh Params`, the script hasn't run: check `SCR_ENABLE` is 1, the file is in `APM/scripts`, and you've rebooted since uploading it.
+4. **Check `STEST_CHAN` is 5** and `SERVO5_FUNCTION` is 0.
+5. **Check the safety switch** has been toggled since the last reboot.
+6. **Check `Servo Output`**, as above. If output 5 is changing but the servo isn't moving, check the servo's wiring and power.
+7. **Try arming the Cube**, as on the [previous page](05-servos.md).
 
 ## Recap
 
-<!-- Component: parameter table, as in 02-missionplanner.md -->
-Parameters of concern:
+1. `SCR_ENABLE` = 1, write the parameters, and reboot.
+2. Upload `servo_slew.lua` to `APM/scripts`, and reboot.
+3. Refresh the parameters, set `STEST_CHAN` = 5, and write the parameters.
+4. Toggle the safety switch.
+5. If it isn't working, check `Servo Output`, then try arming.
 
-| Parameter | Value | Description |
-|---|---|---|
-| `SERVO5_FUNCTION` | 0 | disabled |
-| `SCR_ENABLED` | 1 | enables scripts |
-| `STEST_CHAN` | 5 | script target channel |
-
-1. Flash Sub
-2. Flash Plane
-3. `SERVO5_FUNCTION` = 0
-4. `THR_FAILSAFE` = 0
-5. `SCR_ENABLED` = 1
-6. Upload Script
-7. Write params
-8. Reboot
-9. `STEST_CHAN` = 5
-10. Toggle Safety Switch
-11. If not working, check SERVO OUTPUT, try ARMING
-
-<!-- Component: closing line, as in 01-cube.md and 04-power.md -->
-*[Placeholder: closing line, e.g. that the next page, [Lua servo script explained](06b-lua-servo-explained.md), goes through the script.]*
+Once your servo is moving under the script's control, head to the next page to see how the script works.

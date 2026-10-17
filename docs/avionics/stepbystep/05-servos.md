@@ -67,11 +67,9 @@ You can now use this tab to change the PWM signal being sent to the servo connec
 
 !!! note "Check the signal in Servo Output"
 
-    `SETUP` › `Mandatory Hardware` › `Servo Output` shows the PWM signal on each output. If output 5 changes when you use the Servo/Relay tab but the servo doesn't move, the signal is leaving the Cube, so check the servo's wiring and power.
+    `SETUP` › `Mandatory Hardware` › `Servo Output` shows the PWM signal on each output in its `Position` bar. If output 5 changes when you use the Servo/Relay tab but the servo doesn't move, the signal is leaving the Cube, so check the servo's wiring and power.
 
-    <!-- Screenshot to come. Suggested name, so the link is ready:
     ![Servo output MP](assets/servo_output-MP.png)
-    -->
 
 ## Troubleshooting
 
