@@ -27,7 +27,7 @@ This page walks you through setting up your system so that you can control a ser
     Servos can draw significant current when 'stalled', i.e. the servo is trying to move but has reached the end of a mechanism's movement. The kit's [9 g micro servos](https://servodatabase.com/servo/feetech/fs90) stall at around 0.8 A each, and the [large Feetech servo](https://servodatabase.com/servo/feetech/ft7135m) up to 4 A (est): its stall current isn't published, so treat that as an estimate and leave yourself margin.
 
 1. **Set the UBEC's output voltage.** Start with 5 V.
-2. **Connect the UBEC's output to any servo channel** on the carrier board, taking care with polarity. All the positive (+) pins are connected to one another, as are all the negative (-) pins, so one connection powers the whole rail.
+2. **Connect the UBEC's output to AUX OUT 1**, at the end of the row, taking care with polarity. All the positive (+) pins are connected to one another, as are all the negative (-) pins, so this one connection powers the whole rail, including MAIN OUT 5.
 3. **Plug the servo into MAIN OUT 5**, the right way round:
 
     * top: negative (-), black (or sometimes brown) wire
@@ -35,10 +35,6 @@ This page walks you through setting up your system so that you can control a ser
     * bottom: signal (S), white or orange wire
 
     Your cable colours may vary, and that's fine: many other colour schemes exist. The polarity is what counts, not the colour.
-
-<!-- in-progress:start -->
-*[Placeholder: where the UBEC's input connects to the power supply. Still open as ISSUES.md B8, "which XT60 goes where".]*
-<!-- in-progress:end -->
 
 ## Setting the parameters
 
