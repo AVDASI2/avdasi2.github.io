@@ -2,17 +2,27 @@
 
 This page walks you through setting up your system so that you can control a servo from a Lua script running on the Cube. It assumes you can already move your servo from Mission Planner's Servo/Relay tab: if not, go back to [Servos via Mission Planner](05-servos.md) first.
 
-<!-- in-progress:start -->
-!!! abstract "Draft notes: remove before publishing"
-
-    * The Servo Output screenshot is shared with page 05 (`assets/servo_output-MP.png`).
-<!-- in-progress:end -->
-
 We'll use one of ArduPilot's own example scripts, [:material-information:`servo_slew.lua`](https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/examples/servo_slew.lua). It moves a servo back and forth in a smooth sine wave, and it creates its own parameters so you can change how it moves from Mission Planner. The [next page](06b-lua-servo-explained.md) goes through how it works.
 
 !!! info "No arming needed"
 
     You don't need to arm the Cube for this. You do need to toggle the safety switch from the ++ctrl+f++ menu, as on the previous page.
+
+## Why Lua?
+
+ArduPilot and Mission Planner are pretty functional, but we're working a little 'off-design'. We're using a flight controller that expects to be, well, flying, and we're confusing it by not giving it a GPS signal, constraining some of its degrees of freedom in the tunnel, and asking it to do things that would probably be a bad idea in flight, such as positioning control surface servos directly by hand.
+
+We can work around this using the built-in scripting functionality. The Cube supports Lua scripting (via ArduPilot), enabling onboard automation such as custom sensor logging, custom failsafes, LED behaviour, telemetry filtering, or mission logic, without modifying the firmware (which is a good idea for verification and certification of core flight functionality). Lua is a lightweight, high-level scripting language designed for embedded systems, which makes it ideal for writing custom logic directly on the Cube.
+
+!!! tip "Don't be scared of Lua!"
+
+    It's a strange programming language, but it's the only way to write onboard code for the Cube. You'll get used to it, don't worry.
+
+ArduPilot's scripting pages:
+
+* [:material-information:Lua scripts](https://ardupilot.org/plane/docs/common-lua-scripts.html)
+* [:material-information:Script setup and use examples](https://ardupilot.org/plane/docs/common-scripting-step-by-step.html)
+* [:material-information:Script examples](https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_Scripting/examples) - really wide range
 
 ## Enabling scripting
 
