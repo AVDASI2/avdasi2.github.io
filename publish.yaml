@@ -34,7 +34,8 @@ pages:
   - avionics/stepbystep/03-telemetry.md
   - avionics/stepbystep/04-power.md
   - avionics/stepbystep/05-servos.md
-  - avionics/stepbystep/06-lua.md
+  - avionics/stepbystep/06a-lua-servo.md
+  - avionics/stepbystep/06b-lua-servo-explained.md
   - avionics/stepbystep/07-adc.md
   - avionics/stepbystep/08-i2c.md
   - avionics/stepbystep/98-more.md

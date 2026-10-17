@@ -6,7 +6,7 @@ The site is built with [Zensical](https://zensical.org) in the [CADE30008 theme]
 
 ## Quick start
 
-You need Python 3.10 or later.
+You need Python 3.11 or later.
 
 ```bash
 git clone --recurse-submodules <this repo>   # the site theme is a submodule
@@ -69,6 +69,7 @@ One-time set-up: this repository is `AVDASI2/avdasi2.github.io`, and its
 | `theme/` | The [CADE30008 Zensical theme](https://github.com/CADE30008/cade30008-zensical-theme), a submodule pinned to a tag. Don't edit it here |
 | `docs/stylesheets/course.css` | AVDASI 2 additions to the theme |
 | `docs/code/` | Example code, fetched from [avdasi2-avionics-demo](https://github.com/AVDASI2/avdasi2-avionics-demo) at build time. Not committed |
+| `docs/avionics/stepbystep/archive/` | Old versions of guide pages, kept for comparison. Not in the nav or on the live site |
 | `slides/` | Marp deck sources, built into `docs/slides/` with `npm run slides`. Built decks aren't committed; CI builds them |
 | `publish.yaml` | What the live site shows |
 | `teaching/annual-update.md` | What to update each year, and when |
