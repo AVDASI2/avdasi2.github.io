@@ -41,6 +41,9 @@ The script uses two small helper functions so that it doesn't have to repeat its
 
 **`bind_param()` finds an existing parameter by name.** `Parameter()` creates an empty parameter object, `p`, and `p:init(name)` points it at the parameter called `name`. You can think of `p` as the parameter's address: the script uses it later to read the value. If there's no parameter with that name, `assert` outputs an error message and stops the script.
 
+!!! tip "`assert()` for error messages"
+    `assert()` runs the thing in the first parameter it's passed, and if the run fails it gives the error message in the second parameter. This is handy for debugging. 
+
 ```lua linenums="13" hl_lines="3 4"
 --8<-- "docs/avionics/stepbystep/assets/servo_slew.lua:13:17"
 ```
