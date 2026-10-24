@@ -24,6 +24,7 @@ nav = [
       { "05. Servos via Mission Planner" = "avionics/stepbystep/05-servos.md" },
       { "06a. Servos via Lua Script" = "avionics/stepbystep/06a-lua-servo.md" },
       { "06b. Servo Lua Script Explanation" = "avionics/stepbystep/06b-lua-servo-explained.md" },
+      { "06c. Mode Switch Script" = "avionics/stepbystep/06c-mode-switch.md" },
       { "07. ADC" = "avionics/stepbystep/07-adc.md" },
       { "08. I2C" = "avionics/stepbystep/08-i2c.md" },
       { "More" = "avionics/stepbystep/98-more.md" },
