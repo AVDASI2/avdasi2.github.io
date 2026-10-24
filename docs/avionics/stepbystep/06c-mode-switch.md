@@ -102,7 +102,7 @@ Mission Planner has no bitmask tick-box editor for script parameters, so type th
     A section-by-section look at `avdasi2.lua` and the reasoning behind each design decision.
 
 ```lua
---8<-- "code/avdasi2.lua"
+--8<-- "docs/code/avdasi2.lua"
 ```
 
 Here we go through it in sections and focus on *why* it's written the way it is.
@@ -110,7 +110,7 @@ Here we go through it in sections and focus on *why* it's written the way it is.
 ### Parameters
 
 ```lua
---8<-- "code/avdasi2.lua:parameters"
+--8<-- "docs/code/avdasi2.lua:parameters"
 ```
 
 The script registers its own parameters with ArduPilot. These behave like any other parameter: visible in Mission Planner, editable over telemetry, stored on the Cube. That's what lets you configure the script from Mission Planner instead of editing and re-uploading it.
@@ -120,7 +120,7 @@ The script registers its own parameters with ArduPilot. These behave like any ot
 ### Cached servo functions
 
 ```lua
---8<-- "code/avdasi2.lua:saved_functions"
+--8<-- "docs/code/avdasi2.lua:saved_functions"
 ```
 
 The script doesn't contain any servo functions. ArduPilot's own `SERVOn_FUNCTION` settings are the source of truth. You configure the aircraft in Mission Planner as normal, and the script copies whatever it finds.
@@ -132,7 +132,7 @@ If the authority switch is at LOW when the Cube boots, there's nothing cached ye
 ### Applying a handover
 
 ```lua
---8<-- "code/avdasi2.lua:apply_authority"
+--8<-- "docs/code/avdasi2.lua:apply_authority"
 ```
 
 For each servo selected in `AVDASI2_SERVO_MASK`: going to RC restores the cached function, going to telemetry caches it (first time only) and sets it to `0`.
@@ -145,7 +145,7 @@ Two ArduPilot-specific points:
 ### Reading the switches
 
 ```lua
---8<-- "code/avdasi2.lua:reading_switches"
+--8<-- "docs/code/avdasi2.lua:reading_switches"
 ```
 
 `rc:get_aux_cached()` asks ArduPilot for the last position of the switch carrying a given `RCnn_OPTION` function (`300` here). It returns `0` (LOW), `1` (MID) or `2` (HIGH), or `nil` if no channel has that option. This is why the [Setup](#setup) step is essential: the script never looks at channel numbers, so if no channel has `RCnn_OPTION = 300`, it gets `nil` forever.
@@ -157,7 +157,7 @@ Two ArduPilot-specific points:
 ### SAS
 
 ```lua
---8<-- "code/avdasi2.lua:sas"
+--8<-- "docs/code/avdasi2.lua:sas"
 ```
 
 **SAS only works while RC has authority.** In telemetry mode, the managed surfaces are disabled and the ground station is commanding them directly. Stabilisation has nothing to act through, and a mode change from the transmitter would fight whatever the ground station is doing.
@@ -173,7 +173,7 @@ If ArduPilot refuses the change, the script sends a warning once rather than ret
 ### Messages and scheduling
 
 ```lua
---8<-- "code/avdasi2.lua:messages_scheduling"
+--8<-- "docs/code//avdasi2.lua:messages_scheduling"
 ```
 
 Everything that changed in one cycle goes out as a single message. Nothing is sent when nothing has changed. At 10 Hz, a message every cycle would flood the telemetry link.
