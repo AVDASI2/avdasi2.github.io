@@ -173,7 +173,7 @@ If ArduPilot refuses the change, the script sends a warning once rather than ret
 ### Messages and scheduling
 
 ```lua
---8<-- "docs/code//avdasi2.lua:messages_scheduling"
+--8<-- "docs/code/avdasi2.lua:messages_scheduling"
 ```
 
 Everything that changed in one cycle goes out as a single message. Nothing is sent when nothing has changed. At 10 Hz, a message every cycle would flood the telemetry link.
