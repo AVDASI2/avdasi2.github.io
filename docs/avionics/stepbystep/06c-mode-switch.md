@@ -101,15 +101,16 @@ Mission Planner has no bitmask tick-box editor for script parameters, so type th
 !!! info "Video: Code walkthrough"
     A section-by-section look at `avdasi2.lua` and the reasoning behind each design decision.
 
-The full script is in the course repository. Here we go through it in sections and focus on *why* it's written the way it is.
+```lua
+--8<-- "code/avdasi2.lua"
+```
+
+Here we go through it in sections and focus on *why* it's written the way it is.
 
 ### Parameters
 
 ```lua
-assert(param:add_table(PARAM_TABLE_KEY, PARAM_TABLE_PREFIX, 3), "AVDASI2: could not add param table")
-local RC_FUNC = bind_add_param("RC_FUNC", 1, 300)
-local SAS_FUNC = bind_add_param("SAS_FUNC", 2, 301)
-local SERVO_MASK = bind_add_param("SERVO_MASK", 3, 255)
+--8<-- "code/avdasi2.lua:parameters"
 ```
 
 The script registers its own parameters with ArduPilot. These behave like any other parameter: visible in Mission Planner, editable over telemetry, stored on the Cube. That's what lets you configure the script from Mission Planner instead of editing and re-uploading it.
@@ -119,7 +120,7 @@ The script registers its own parameters with ArduPilot. These behave like any ot
 ### Cached servo functions
 
 ```lua
-local savedFunctions = {}
+--8<-- "code/avdasi2.lua:saved_functions"
 ```
 
 The script doesn't contain any servo functions. ArduPilot's own `SERVOn_FUNCTION` settings are the source of truth. You configure the aircraft in Mission Planner as normal, and the script copies whatever it finds.
@@ -131,25 +132,7 @@ If the authority switch is at LOW when the Cube boots, there's nothing cached ye
 ### Applying a handover
 
 ```lua
-local function apply_authority(rc_control)
-  local mask = uint32_t(SERVO_MASK:get())
-  for n = 1, NUM_SERVOS do
-    if ((mask >> (n - 1)) & 1):toint() == 1 then
-      if rc_control then
-        if savedFunctions[n] ~= nil then
-          param:set(servoParamNames[n], savedFunctions[n])
-        end
-      else
-        if savedFunctions[n] == nil then
-          savedFunctions[n] = param:get(servoParamNames[n])
-        end
-        if savedFunctions[n] ~= nil then
-          param:set(servoParamNames[n], 0)
-        end
-      end
-    end
-  end
-end
+--8<-- "code/avdasi2.lua:apply_authority"
 ```
 
 For each servo selected in `AVDASI2_SERVO_MASK`: going to RC restores the cached function, going to telemetry caches it (first time only) and sets it to `0`.
@@ -162,13 +145,7 @@ Two ArduPilot-specific points:
 ### Reading the switches
 
 ```lua
-local rc_pos = rc:get_aux_cached(RC_FUNC:get())
-if rc_pos and rc_pos ~= 1 and rc_pos ~= rc_state then
-  apply_authority(rc_pos == 0)
-  rc_state = rc_pos
-  sas_state = -1
-  msg = (rc_pos == 0) and "AVDASI2: RC control" or "AVDASI2: TELEM control"
-end
+--8<-- "code/avdasi2.lua:reading_switches"
 ```
 
 `rc:get_aux_cached()` asks ArduPilot for the last position of the switch carrying a given `RCnn_OPTION` function (`300` here). It returns `0` (LOW), `1` (MID) or `2` (HIGH), or `nil` if no channel has that option. This is why the [Setup](#setup) step is essential: the script never looks at channel numbers, so if no channel has `RCnn_OPTION = 300`, it gets `nil` forever.
@@ -180,12 +157,7 @@ end
 ### SAS
 
 ```lua
-if rc_state == 0 then
-  local sas_pos = rc:get_aux_cached(SAS_FUNC:get())
-  if sas_pos and sas_pos ~= 1 and sas_pos ~= sas_state then
-    sas_state = sas_pos
-    local stab = (sas_pos == 2)
-    local ok = vehicle:set_mode(stab and math.floor(SAS_MODE:get()) or MODE_MANUAL)
+--8<-- "code/avdasi2.lua:sas"
 ```
 
 **SAS only works while RC has authority.** In telemetry mode, the managed surfaces are disabled and the ground station is commanding them directly. Stabilisation has nothing to act through, and a mode change from the transmitter would fight whatever the ground station is doing.
@@ -201,12 +173,7 @@ If ArduPilot refuses the change, the script sends a warning once rather than ret
 ### Messages and scheduling
 
 ```lua
-  if msg then
-    gcs:send_text(SEV_INFO, msg)
-  end
-
-  return update, UPDATE_INTERVAL_MS
-end
+--8<-- "code/avdasi2.lua:messages_scheduling"
 ```
 
 Everything that changed in one cycle goes out as a single message. Nothing is sent when nothing has changed. At 10 Hz, a message every cycle would flood the telemetry link.
