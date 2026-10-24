@@ -120,7 +120,7 @@ The script registers its own parameters with ArduPilot. These behave like any ot
 ### Cached servo functions
 
 ```lua
----- "docs/code/Onboard/avdasi2.lua:saved_functions"
+--8<-- "docs/code/Onboard/avdasi2.lua:saved_functions"
 ```
 
 The script doesn't contain any servo functions. ArduPilot's own `SERVOn_FUNCTION` settings are the source of truth. You configure the aircraft in Mission Planner as normal, and the script copies whatever it finds.
