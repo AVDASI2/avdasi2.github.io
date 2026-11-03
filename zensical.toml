@@ -27,6 +27,7 @@ nav = [
       { "06c. Mode Switch Script" = "avionics/stepbystep/06c-mode-switch.md" },
       { "07. ADC" = "avionics/stepbystep/07-adc.md" },
       { "08. I2C" = "avionics/stepbystep/08-i2c.md" },
+      { "09. Data Logging" = "avionics/stepbystep/07-datalog.md" },
       { "More" = "avionics/stepbystep/98-more.md" },
     ] },
     { "Sensors" = "avionics/sensors.md" },

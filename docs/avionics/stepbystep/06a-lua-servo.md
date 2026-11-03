@@ -93,7 +93,6 @@ If the servo doesn't move, work through these in order.
 4. **Check `STEST_CHAN` is 5** and `SERVO5_FUNCTION` is 0.
 5. **Check the safety switch** has been toggled since the last reboot.
 6. **Check `Servo Output`**, as above. If output 5 is changing but the servo isn't moving, check the servo's wiring and power.
-7. **Try arming the Cube**, as on the [previous page](05-servos.md).
 
 ## Recap
 
@@ -101,6 +100,6 @@ If the servo doesn't move, work through these in order.
 2. Upload `servo_slew.lua` to `APM/scripts`, and reboot.
 3. Refresh the parameters, set `STEST_CHAN` = 5, and write the parameters.
 4. Toggle the safety switch.
-5. If it isn't working, check `Servo Output`, then try arming.
+5. If it isn't working, check `Servo Output`, then work through the troubleshooting above.
 
 Once your servo is moving under the script's control, head to the next page to see how the script works.

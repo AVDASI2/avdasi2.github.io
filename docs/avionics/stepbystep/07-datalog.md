@@ -1,49 +1,64 @@
 # Data Logging
 
+## Recording a log
+
+The Cube can keep a detailed log of all its sensors (IMUs, temperature sensors, etc.), its attitude and its servo outputs, as a `.BIN` file on its SD card. You'll want one for each wind-tunnel test, so that the Company's subteams can analyse the data.
+
+!!! info "Logging on the bench: `LOG_DISARMED`"
+
+    By default the Cube only logs while it's armed. You never need to arm it on the bench or in the tunnel, so instead set `LOG_DISARMED` to 1 in the `Full Parameter List` and write the parameters. The Cube then logs from the moment it powers up. Set it back to 0 to stop.
+
+    The Cube saves this setting, so it carries on logging after a reboot until you set it to 0.
+
+Logs are big: about 3 MB for every minute of logging. Only log while you're testing, and download what you need before the next session.
+
+!!! tip "Optional: if you're using CubeGUI"
+
+    CubeGUI, the course's MATLAB ground station, has a Logs panel that starts and stops the Cube's log for you (it changes `LOG_DISARMED`, and asks first), and adds your run markers to it, so each run is easy to find. You don't need it: everything on this page works without it.
+
 ## Downloading Cube logs {#downloading-cube-logs}
 
-The flight controller automatically creates a log of all its sensors (IMUs, temp. sensors, etc.) and its attitude changes during operation into a .bin file. These are necessary to analyse the behaviour of the drone in the wind tunnel and should be downloaded after each test so that the appropriate subteams of the Company can use their data.
+Leave the SD card in the Cube, and download the logs with Mission Planner over USB:
 
-!!! warning "The cube must be armed in order to log data"
-
-The data in stored in .bin files. The easiest way to access these files is pulling them directly off of the SD card.
-
-These logs can also be accessed through Mission Planner by clicking the `Download DataFlash Log Via Mavlink` button in the `DataFlash Logs` panel.
+1. Plug the Cube into your laptop with the USB cable, and connect Mission Planner.
+2. In the `DATA` tab, open `DataFlash Logs` and click `Download DataFlash Log Via Mavlink`.
 
 !!! tip "You can also view a selected .bin file directly with the `Review a Log` button"
 
 ![log MP](assets/logs-MP.png)
 
-This open up the `Log Downloader` menu, showing all avaible log files which you can download from here.
+This opens the `Log Downloader` menu, showing all the available log files, which you can download from here.
 
 ![log downloader MP](assets/log_downloader-MP.png)
 
-!!! warning "The download is quite slow over usb connection and extremely slow over Wifi"
+!!! warning "Downloading over Wi-Fi is very slow"
 
-## Optional: Logging through LUA scripts
+    Over the Kahuna's Wi-Fi, a download runs at about 4 kB a second, so each minute of logging takes about 12 minutes to download (timed on a kit, November 2026). Use USB for anything but a very short log.
 
-LUA scripts can create and modify files on the Cube’s memory; therefore, it is possible to create logs using LUA scripts (i.e. saving flap angles from the sensor into a CSV). This should only be done for a few sensors only, as it requires a lot of processing power from the flight controller. The example scripts will showcase this as well.
+## Optional: Logging through Lua scripts
 
-## MatLab data analysis
+Lua scripts can write their own values into the Cube's log with `logger:write`, so they sit alongside everything else in the `.BIN` file. They can also create and modify files on the Cube's SD card (for example, saving flap angles from a sensor into a CSV). Keep this to a few values, as writing files takes processing time on the flight controller. The example scripts will showcase this as well.
 
-A useful tool to analyse the Cube logs is the `Flight Log Analyser` app built into MatLab.
+## MATLAB data analysis
 
-To access the app you first need to download MatLab's `UAV Toolbox` extension from the Add-on Explorer.
+A useful tool to analyse the Cube logs is the `Flight Log Analyzer` app built into MATLAB.
+
+To access the app you first need to install MATLAB's `UAV Toolbox` from the Add-On Explorer.
 
 ![UAV Toolbox](assets/UAV_Toolbox.png)
 
-After opening the `Flight Lob Analyser` app. Click import to import your .bin file previosuly downloaded using a method from [Downloading Cube logs](Data-Logging.md#downloading-cube-logs).
+After opening the `Flight Log Analyzer` app, click import to import the .bin file you downloaded (see [Downloading Cube logs](#downloading-cube-logs)).
 
 ![import MatLab](assets/import-MatLab.png)
 
 !!! note "It may take a while for large .bin files to load"
 
-The next step is is adding the desired signals you want to analyse. This is done by clicking the `Add Custom Signal` button. This will open the `Add Custom Signal` menu with a list of all the signals that the cube logged. 
+The next step is adding the desired signals you want to analyse. This is done by clicking the `Add Custom Signal` button. This will open the `Add Custom Signal` menu with a list of all the signals that the cube logged. 
 
 !!! tip "The most relevant signal is `ATT`"
     This stands for "Attitude" which will give you the pitch/roll/yaw and other relevant data. 
 
-    Make sure to inclue the `TimeUS` signal since this will give you timestamps.
+    Make sure to include the `TimeUS` signal since this will give you timestamps.
 
 Once you've selected your signals, click `Add Signals` and they'll appear in the `Signal Preview` box. 
 

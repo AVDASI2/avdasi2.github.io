@@ -46,8 +46,11 @@ This page walks you through setting up your system so that you can control a ser
 
 | Parameter | Value | Description |
 |---|---|---|
-| `THR_FAILSAFE` | 0 | The RC transmitter connection failsafe. Disabling it allows us to arm the Cube without an RC receiver connected. |
 | `SERVO5_FUNCTION` | 0 | Disables Servo 5's automatic function, allowing us to take manual control. This should be the default. |
+
+!!! info "No arming needed"
+
+    You don't need to arm the Cube to move a servo whose `SERVOn_FUNCTION` is 0, so you don't need to change `THR_FAILSAFE` either: leave it at its default. What holds the servo still is the safety switch, below.
 
 ## Moving the servo
 
@@ -74,19 +77,11 @@ If the servo doesn't move, work through these in order.
 1. **Check the servo is plugged into MAIN OUT 5**, the right way round: see [Connecting the servo](#connecting-the-servo).
 2. **Check the servo is getting power from the BEC**, by using a multimeter to test that the MAIN OUT 5 pins are powered.
 3. **Reboot the Cube** from Mission Planner.
-4. **Power cycle the Cube**: unplug the power, plug it back in, and reconnect Mission Planner.
-5. **Try arming the Cube**: in the `DATA` tab, open the `Actions` tab in the bottom left and click `Arm/ Disarm`.
+4. **Toggle the safety switch again.** It turns back on every time the Cube reboots or is power cycled.
+5. **Check `SERVO5_FUNCTION` is 0.** If it isn't, the Cube is using output 5 for something else, and ignores the Servo/Relay tab.
+6. **Power cycle the Cube**: unplug the power, plug it back in, reconnect Mission Planner, and toggle the safety switch.
+7. **Re-flash the Cube** to Sub, then back to Plane, and follow the steps on this page again.
 
-    ![Arm MP](assets/arm-MP.png)
-
-    If arming fails, Mission Planner asks whether you want to force arm. Click `Force Arm`, then try controlling the servo again.
-
-    ![Force arm MP](assets/force_arm-MP.png)
-
-    !!! warning "Force arming skips the safety checks"
-
-        Force arming tells the Cube to arm even though its pre-arm checks have failed. That's acceptable on the bench with only a servo connected, but never with a motor or propeller attached. Disarm with `Arm/ Disarm` when you've finished.
-
-6. **Re-flash the Cube** to Sub, then back to Plane, and follow the steps on this page again.
+Arming the Cube won't help: a servo on an output with `SERVOn_FUNCTION` = 0 moves without it.
 
 Once your servo moves from Mission Planner, you're ready to control it from a script. Head to the next step using the links below or to the left.
