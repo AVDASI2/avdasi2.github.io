@@ -37,10 +37,11 @@ pages:
   - avionics/stepbystep/06a-lua-servo.md
   - avionics/stepbystep/06b-lua-servo-explained.md
   - avionics/stepbystep/06c-mode-switch.md
-  - avionics/stepbystep/07-adc.md
-  - avionics/stepbystep/08-i2c.md
+  - avionics/stepbystep/07-cubegui.md
+  - avionics/stepbystep/08-adc.md
+  - avionics/stepbystep/09-i2c.md
   # Hidden for now: uncertain if it's wanted.
-  # - avionics/stepbystep/07-datalog.md
+  # - avionics/stepbystep/10-datalog.md
   - avionics/stepbystep/98-more.md
   - avionics/sensors.md
   - avionics/examplecode.md
