@@ -39,8 +39,7 @@ pages:
   - avionics/stepbystep/06c-mode-switch.md
   - avionics/stepbystep/07-adc.md
   - avionics/stepbystep/08-i2c.md
-  # Hidden for now: uncertain if wanted, and it appears and disappears in the
-  # navigation as you move around the site.
+  # Hidden for now: uncertain if it's wanted.
   # - avionics/stepbystep/07-datalog.md
   - avionics/stepbystep/98-more.md
   - avionics/sensors.md
