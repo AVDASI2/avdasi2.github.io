@@ -28,7 +28,7 @@ CubeGUI is a MATLAB window for bench and wind-tunnel testing with your Cube: liv
 
     (Or **Code** > **Download ZIP**.)
 
-2. Watch the introduction videos. <!-- TODO before publishing: link the videos here -->
+2. Watch the introduction videos (coming soon).
 3. Read the [README](https://github.com/AVDASI2/CubeGUI#readme). It covers running it, connecting to your Cube, logging, and changing CubeGUI to suit your team.
 
 You can try it straight away with no hardware: type `CubeGUI` in MATLAB, choose **Simulated**, and click **Connect**.
