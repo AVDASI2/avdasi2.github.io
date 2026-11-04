@@ -20,13 +20,13 @@ CubeGUI is a MATLAB window for bench and wind-tunnel testing with your Cube: liv
 
 ## Getting started
 
-1. Get it from GitHub, ideally with git so you can update it with one command:
+1. Get it from GitHub, ideally with git, so you can update it later. MATLAB can do this itself, on Windows or a Mac: in the Command Window, go to the folder you want CubeGUI in, then type
 
-    ```bash
-    git clone https://github.com/AVDASI2/CubeGUI.git
+    ```matlab
+    gitclone("https://github.com/AVDASI2/CubeGUI.git")
     ```
 
-    (Or **Code** > **Download ZIP**.)
+    (Or, with git installed, `git clone https://github.com/AVDASI2/CubeGUI.git` in a terminal; or **Code** > **Download ZIP**.)
 
 2. Watch the introduction videos (coming soon).
 3. Read the [README](https://github.com/AVDASI2/CubeGUI#readme). It covers running it, connecting to your Cube, logging, and changing CubeGUI to suit your team.
