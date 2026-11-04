@@ -5,7 +5,7 @@ Mission Planner is a full-featured ground station application for the ArduPilot 
 !!! info
     Mission Planner requires Windows - I've had some success running it via [Whisky](https://getwhisky.app) on my Mac (update: Whisky is being discontinued, try [WINE](https://www.winehq.org) either directly or via [CrossOver](https://www.codeweavers.com/crossover), or use [Parallels](https://www.parallels.com), [VirtualBox](https://www.virtualbox.org) or [VMWare](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion)), but the uni cannot offer support for this approach. **Never** use virtualisation for flight (and wind tunnel) operations.
 
-    Update: there is a [macOS dev build](https://github.com/ArduPilot/MissionPlanner/releases/tag/osxlatest), but it's not an official release yet, and can't flash firmware at the moment. [QGroundControl](https://qgroundcontrol.com) is a cross-platform alternative but the Flight Lab focuses on Mission Planner on Windows.
+    Update: there is a [macOS dev build](https://github.com/ArduPilot/MissionPlanner/releases/tag/osxlatest), but it's not an official release yet, and can't flash firmware at the moment ([CubeGUI](07-cubegui.md) can, over USB). [QGroundControl](https://qgroundcontrol.com) is a cross-platform alternative but the Flight Lab focuses on Mission Planner on Windows.
 
 Take a look at Ardupilot's overview page, then install Mission Planner.
 
