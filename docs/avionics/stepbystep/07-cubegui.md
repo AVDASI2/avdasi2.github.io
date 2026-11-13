@@ -44,6 +44,8 @@ You can try it straight away with no hardware: type `CubeGUI` in MATLAB, choose 
 
 CubeGUI's features arrive in stages as the unit goes on. **Levels 0 (Simulate) and 1 (Connect and log, over the Wi-Fi or a USB cable) are released.** Levels 2 (RC) and 3 (Closed loop) are previews: they're in the code to look at, but aren't supported until they're released later in the unit.
 
+Levels 2 and 3 use their own Lua script, `cubegui.lua`, which takes the place of `avdasi2.lua` from [Mode switch](06c-mode-switch.md): they use the same transmitter switches, so **run one or the other, not both**. CubeGUI tells you if `avdasi2.lua` is still running.
+
 !!! tip "On a Mac"
 
     Mission Planner's Mac build can't flash firmware (see [Mission Planner](02-missionplanner.md)). CubeGUI can, over a USB cable: **Setup** tab > **Firmware over USB** > **Flash ArduPlane...**. Its **Reset to a fresh Cube...** does the same job as flashing Sub then Plane. You'll still need a ground station for the calibrations on the earlier pages.
