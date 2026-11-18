@@ -10,6 +10,13 @@ CubeGUI is a MATLAB window for bench and wind-tunnel testing with your Cube: liv
 
     CubeGUI has been lightly tested, on ArduPilot's simulator and on the bench. It's suitable for careful wind-tunnel and bench testing of a model held on a rig, and **not** for anything that flies. It was written with the help of an AI assistant; its README says how.
 
+<div class="video">
+<iframe src="https://www.youtube-nocookie.com/embed/fknDjbedols?rel=0&amp;modestbranding=1"
+        title="CubeGUI Initial Demo"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+        allowfullscreen loading="lazy"></iframe>
+</div>
+
 ![CubeGUI](assets/cubegui-teaser.png)
 
 !!! info "Before you start"
@@ -28,7 +35,7 @@ CubeGUI is a MATLAB window for bench and wind-tunnel testing with your Cube: liv
 
     (Or, with git installed, `git clone https://github.com/AVDASI2/CubeGUI.git` in a terminal; or **Code** > **Download ZIP**.)
 
-2. Watch the introduction videos (coming soon).
+2. Watch the demonstration above. More introduction videos are to follow.
 3. Read the [README](https://github.com/AVDASI2/CubeGUI#readme). It covers running it, connecting to your Cube, logging, and changing CubeGUI to suit your team.
 
 You can try it straight away with no hardware: type `CubeGUI` in MATLAB, choose **Simulated**, and click **Connect**.
