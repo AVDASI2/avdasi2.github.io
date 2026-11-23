@@ -22,6 +22,7 @@ nav = [
       { "03. Telemetry" = "avionics/stepbystep/03-telemetry.md" },
       { "04. Power" = "avionics/stepbystep/04-power.md" },
       { "05. Servos via Mission Planner" = "avionics/stepbystep/05-servos.md" },
+      { "06. RC Transmitter" = "avionics/stepbystep/06-rc.md" },
       { "06a. Servos via Lua Script" = "avionics/stepbystep/06a-lua-servo.md" },
       { "06b. Servo Lua Script Explanation" = "avionics/stepbystep/06b-lua-servo-explained.md" },
       { "06c. Mode Switch Script" = "avionics/stepbystep/06c-mode-switch.md" },
