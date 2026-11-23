@@ -197,4 +197,4 @@ This script has two ways of adjusting the servo's movement limits. The short tab
 * [:material-information:ArduPilot - Lua API reference](https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/docs/docs.lua) - every function a script can call, including the ones used here
 * [:material-information:ArduPilot - Script examples](https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_Scripting/examples) - really wide range
 
-Next, the guide moves on from servos to reading sensors, starting with the Cube's [ADC](08-adc.md).
+Next, [CubeGUI](07-cubegui.md) moves the servos from MATLAB, and then the guide sets up the [RC transmitter](08-rc.md), so a person can move them with the sticks.

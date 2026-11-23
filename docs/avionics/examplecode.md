@@ -70,7 +70,7 @@ This script gives an overview on how to write onboard code in LUA for the Cube a
 ```
 
 !!! warning "Deprecated"
-    `Mode_switch_example.lua` is superseded by `avdasi2.lua`, documented on the [Mode Switch Script](../stepbystep/06c-mode-switch.md) page. This version is kept here for reference only. Do not use it as a starting point.
+    `Mode_switch_example.lua` is superseded by `avdasi2.lua`, documented on the [Mode Switch Script](stepbystep/08a-mode-switch.md) page. This version is kept here for reference only. Do not use it as a starting point.
 ## Mode-Switch.lua
 
 ```lua title="Mode-Switch.lua"

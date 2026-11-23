@@ -4,7 +4,7 @@ In the wind tunnel, the Cube isn't flying anything. It's bolted into a model wit
 
 It also gives you a second switch for SAS (stability augmentation), toggling the Cube between MANUAL and the mode set by `AVDASI2_SAS_MODE` while the transmitter has control.
 
-This page assumes you've already read the [:material-step-forward:Lua scripting overview](lua-overview.md) and know how to get a script onto the Cube.
+This page assumes your transmitter is set up as on [:material-step-forward:RC Transmitter](08-rc.md), and that you know how to get a script onto the Cube from [:material-step-forward:Servos via Lua Script](06a-lua-servo.md).
 
 !!! info "Video: Setup walkthrough"
     Mapping the transmitter switches, setting `RCnn_OPTION`, uploading the script and checking the Messages tab.
@@ -26,7 +26,7 @@ When the authority switch goes to HIGH for the first time, the script records ea
 
 The script doesn't know or care which channel your switch is on. It listens for a switch *function*, and you have to tell ArduPilot which channel carries that function.
 
-1. On the transmitter, map a switch to a **spare** RC channel. Pick one that isn't used by any flight control.
+1. On the transmitter, map a switch to a **spare** RC channel. Pick one that isn't used by any flight control. [RC Transmitter](08-rc.md), step 5, shows how.
 2. Map a second switch to another spare channel for SAS.
 3. In Mission Planner, go to **Config > Full Parameter List**.
 4. Find `RCnn_OPTION` for the authority switch's channel (`nn` = channel number, e.g. `RC7_OPTION`) and set it to **`300`**.
@@ -42,7 +42,7 @@ You can check the switch is actually reaching the Cube in **Setup > Mandatory Ha
 
 ## Upload and reboot
 
-Upload `avdasi2.lua` to `APM/scripts/` and reboot, as described on the [:material-step-forward:Lua scripting overview](lua-overview.md).
+Upload `avdasi2.lua` to `APM/scripts/` and reboot, as described on [:material-step-forward:Servos via Lua Script](06a-lua-servo.md).
 
 ## Verify it's working
 
@@ -182,7 +182,7 @@ ArduPilot scripts can't loop forever: each call has an instruction budget, and a
 
 ## Troubleshooting
 
-If you don't see `AVDASI2: started` at all, the script isn't running: go back to the [:material-step-forward:Lua scripting overview](lua-overview.md).
+If you don't see `AVDASI2: started` at all, the script isn't running: go back to [:material-step-forward:Servos via Lua Script](06a-lua-servo.md).
 
 **I see `AVDASI2: started` and nothing else, whatever I do with the switches.**
 Check the `RCnn_OPTION` step in [Setup](#setup). In order:
