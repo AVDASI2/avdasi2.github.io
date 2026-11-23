@@ -2,7 +2,7 @@
 
 This page walks you through setting up your system so that you can control a servo from a Lua script running on the Cube. It assumes you can already move your servo from Mission Planner's Servo/Relay tab: if not, go back to [Servos via Mission Planner](05-servos.md) first.
 
-We'll use one of ArduPilot's own example scripts, [:material-information:`servo_slew.lua`](https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/examples/servo_slew.lua). It moves a servo back and forth in a smooth sine wave, and it creates its own parameters so you can change how it moves from Mission Planner. The [next page](06b-lua-servo-explained.md) goes through how it works.
+We'll use one of ArduPilot's own example scripts, [:material-information:`servo_slew.lua`](https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/examples/servo_slew.lua). It moves a servo back and forth in a smooth sine wave, and it creates its own parameters so you can change how it moves from Mission Planner. The [next page](06a-lua-servo-explained.md) goes through how it works.
 
 !!! info "No arming needed"
 

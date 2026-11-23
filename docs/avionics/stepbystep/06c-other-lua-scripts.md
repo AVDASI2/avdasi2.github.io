@@ -8,7 +8,7 @@
 | Script | What it does (its own header comment) | Links to |
 |---|---|---|
 | [`hello_world.lua`](https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/examples/hello_world.lua) | "an example of saying hello": the smallest possible script, sending a message to Mission Planner | 06a, as a first script |
-| [`servo_set_get.lua`](https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/examples/servo_set_get.lua) | Sets MAIN1 to 1700 PWM for a second, hands it back to its assigned function for a second, then 1100 PWM, and reads the output back | 06b, the same `set_output_pwm_chan_timeout` call |
+| [`servo_set_get.lua`](https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/examples/servo_set_get.lua) | Sets MAIN1 to 1700 PWM for a second, hands it back to its assigned function for a second, then 1100 PWM, and reads the output back | 06a, the same `set_output_pwm_chan_timeout` call |
 | [`analog_input_and_GPIO.lua`](https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/examples/analog_input_and_GPIO.lua) | Reads an analog pin, PWM in and GPIO | [09. ADC](09-adc.md) |
 | [`i2c_scan.lua`](https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/examples/i2c_scan.lua) | Scans for devices on the I²C bus | [10. I2C](10-i2c.md) |
 | [`logging.lua`](https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/examples/logging.lua) | Logs to a file on the SD card and to the dataflash log | Data logging (PLAN.md: `logger:write()`) |

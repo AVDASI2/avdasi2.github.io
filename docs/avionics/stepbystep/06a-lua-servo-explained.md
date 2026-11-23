@@ -1,6 +1,6 @@
 # How the Lua Servo Script Works
 
-This page explains `servo_slew.lua`, the script you ran on the [previous page](06a-lua-servo.md). It's shown below a section at a time, with line numbers matching the full script. You should already have it running; this page gives you the understanding to customise it, or to write one of your own.
+This page explains `servo_slew.lua`, the script you ran on the [previous page](06-lua-servo.md). It's shown below a section at a time, with line numbers matching the full script. You should already have it running; this page gives you the understanding to customise it, or to write one of your own.
 
 The script's sole purpose is to generate a sine wave and turn it into a servo PWM signal.
 

@@ -4,7 +4,7 @@ In the wind tunnel, the Cube isn't flying anything. It's bolted into a model wit
 
 It also gives you a second switch for SAS (stability augmentation), toggling the Cube between MANUAL and the mode set by `AVDASI2_SAS_MODE` while the transmitter has control.
 
-This page assumes your transmitter is set up as on [:material-step-forward:RC Transmitter](08-rc.md), and that you know how to get a script onto the Cube from [:material-step-forward:Servos via Lua Script](06a-lua-servo.md).
+This page assumes your transmitter is set up as on [:material-step-forward:RC Transmitter](08-rc.md), and that you know how to get a script onto the Cube from [:material-step-forward:Servos via Lua Script](06-lua-servo.md).
 
 !!! tip "Using CubeGUI?"
 
@@ -46,7 +46,7 @@ You can check the switch is actually reaching the Cube in **Setup > Mandatory Ha
 
 ## Upload and reboot
 
-Upload `avdasi2.lua` to `APM/scripts/` and reboot, as described on [:material-step-forward:Servos via Lua Script](06a-lua-servo.md).
+Upload `avdasi2.lua` to `APM/scripts/` and reboot, as described on [:material-step-forward:Servos via Lua Script](06-lua-servo.md).
 
 ## Verify it's working
 
@@ -186,7 +186,7 @@ ArduPilot scripts can't loop forever: each call has an instruction budget, and a
 
 ## Troubleshooting
 
-If you don't see `AVDASI2: started` at all, the script isn't running: go back to [:material-step-forward:Servos via Lua Script](06a-lua-servo.md).
+If you don't see `AVDASI2: started` at all, the script isn't running: go back to [:material-step-forward:Servos via Lua Script](06-lua-servo.md).
 
 **I see `AVDASI2: started` and nothing else, whatever I do with the switches.**
 Check the `RCnn_OPTION` step in [Setup](#setup). In order:

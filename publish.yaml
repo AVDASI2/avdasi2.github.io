@@ -34,8 +34,8 @@ pages:
   - avionics/stepbystep/03-telemetry.md
   - avionics/stepbystep/04-power.md
   - avionics/stepbystep/05-servos.md
-  - avionics/stepbystep/06a-lua-servo.md
-  - avionics/stepbystep/06b-lua-servo-explained.md
+  - avionics/stepbystep/06-lua-servo.md
+  - avionics/stepbystep/06a-lua-servo-explained.md
   - avionics/stepbystep/07-cubegui.md
   - avionics/stepbystep/08-rc.md
   - avionics/stepbystep/08a-mode-switch.md
