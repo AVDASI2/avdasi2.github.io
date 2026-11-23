@@ -6,6 +6,10 @@ It also gives you a second switch for SAS (stability augmentation), toggling the
 
 This page assumes your transmitter is set up as on [:material-step-forward:RC Transmitter](08-rc.md), and that you know how to get a script onto the Cube from [:material-step-forward:Servos via Lua Script](06a-lua-servo.md).
 
+!!! tip "Using CubeGUI?"
+
+    CubeGUI has its own script, `cubegui.lua`, which does the same job with the same switches, plus the closed loop. Use that instead (see [RC Transmitter](08-rc.md), step 6). Don't run both: they would fight over the servos.
+
 !!! info "Video: Setup walkthrough"
     Mapping the transmitter switches, setting `RCnn_OPTION`, uploading the script and checking the Messages tab.
 
