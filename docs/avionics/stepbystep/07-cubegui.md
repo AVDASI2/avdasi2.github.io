@@ -42,7 +42,7 @@ You can try it straight away with no hardware: type `CubeGUI` in MATLAB, choose 
 
 ## Levels
 
-CubeGUI's features arrive in stages as the unit goes on. **Levels 0 (Simulate) and 1 (Connect and log, over the Wi-Fi or a USB cable) are released.** Levels 2 (RC) and 3 (Closed loop) are previews: they're in the code to look at, but aren't supported until they're released later in the unit.
+CubeGUI's features arrive in stages as the unit goes on. **Levels 0 (Simulate), 1 (Connect and log, over the Wi-Fi or a USB cable) and 2 (RC) are released.** Level 3 (Closed loop) is a preview: it's in the code to look at, but isn't supported until it's released later in the unit. For level 2, set up your transmitter first: see [RC](06-rc.md).
 
 Levels 2 and 3 use their own Lua script, `cubegui.lua`, which takes the place of `avdasi2.lua` from [Mode switch](06c-mode-switch.md): they use the same transmitter switches, so **run one or the other, not both**. CubeGUI tells you if `avdasi2.lua` is still running.
 
