@@ -1,3 +1,7 @@
+---
+icon: material/language-python
+---
+
 # PyMAVLink
 
 The cube uses MAVLink, a lightweight communication protocol to receive commands and transmit data to and from the Ground Station. Python has a MAVLink module called Pymavlink that will allow to send and capture MAVLink messages.

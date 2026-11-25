@@ -1,3 +1,7 @@
+---
+icon: material/axis-z-rotate-clockwise
+---
+
 # Controlling Servos via Mission Planner
 
 This page walks you through setting up your system so that you can control a servo manually from Mission Planner's Servo/Relay tab.

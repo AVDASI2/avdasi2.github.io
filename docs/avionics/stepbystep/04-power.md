@@ -1,3 +1,7 @@
+---
+icon: material/lightning-bolt
+---
+
 # Power
 
 Most remotely-piloted aircraft will require various different power distribution systems (you might hear these referred to as 'buses') for things like flight control computers (often 5V or 3.3V with minimal current draw), companion computers (e.g. Raspberry Pi 5V5A), sensors, and electronic speed controllers (ESCs) for electric motors.

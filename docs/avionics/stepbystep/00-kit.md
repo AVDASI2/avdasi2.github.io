@@ -1,3 +1,7 @@
+---
+icon: material/toolbox
+---
+
 # Avionics kit
 
 Avionics teams will be issued with kits that will enable them to create a minimum-working-example system. The core components of this are part of the [University of Bristol Flight Lab](http://flightlab.bristol.ac.uk)'s standard research hardware and software stack, and have been flown around the world including over volcanoes, for conservation and humanitarian projects, and for search and rescue missions.

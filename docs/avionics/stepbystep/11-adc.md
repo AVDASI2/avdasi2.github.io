@@ -1,3 +1,7 @@
+---
+icon: material/sine-wave
+---
+
 ## ADC
 
 The Cube contains an analog-to-digital converter (ADC) (actually, it contains three - but two are used for battery voltage monitoring). The externally-exposed ADC is by default used for airspeed sensing but we can use it to measure any analog signal. 

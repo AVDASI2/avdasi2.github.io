@@ -1,3 +1,7 @@
+---
+icon: material/flag-checkered
+---
+
 # Minimum working example summary
 
 

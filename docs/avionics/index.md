@@ -1,3 +1,7 @@
+---
+icon: material/airplane
+---
+
 # Avionics
 
 These pages include general AVDASI2 Avionics links and a step-by-step guide that takes you from zero to a minimum working example.

@@ -1,3 +1,7 @@
+---
+icon: material/script-text
+---
+
 # Other Lua Scripts
 
 <!-- in-progress:start -->

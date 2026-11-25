@@ -1,3 +1,7 @@
+---
+icon: material/language-lua
+---
+
 # Controlling Servos Using a Lua Script
 
 This page walks you through setting up your system so that you can control a servo from a Lua script running on the Cube. It assumes you can already move your servo from Mission Planner's Servo/Relay tab: if not, go back to [Servos via Mission Planner](05-servos.md) first.

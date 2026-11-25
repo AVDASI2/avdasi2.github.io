@@ -1,3 +1,7 @@
+---
+icon: material/cube-outline
+---
+
 # Cube Orange+ Autopilot
 
 The University's [Flight Lab](http://flightlab.bristol.ac.uk) uses the [:material-information:CubePilot Cube Orange+](https://docs.cubepilot.org/autopilot/the-cube) as its standard research-grade flight controller. We'll just call it "the Cube".

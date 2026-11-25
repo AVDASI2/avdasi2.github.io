@@ -1,3 +1,7 @@
+---
+icon: material/toggle-switch-outline
+---
+
 # RC / Telemetry Authority Script
 
 In the wind tunnel, the Cube isn't flying anything. It's bolted into a model with no GPS, and its job is to drive the control surfaces while you take measurements. Sometimes you want those surfaces on the transmitter sticks. Sometimes you want to command them precisely from the ground station. `avdasi2.lua` lets you hand control between the two with a single switch on the transmitter.

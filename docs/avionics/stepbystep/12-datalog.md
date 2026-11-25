@@ -1,3 +1,7 @@
+---
+icon: material/database
+---
+
 # Data Logging
 
 ## Recording a log

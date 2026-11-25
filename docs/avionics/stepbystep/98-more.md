@@ -1,3 +1,7 @@
+---
+icon: material/dots-horizontal-circle
+---
+
 # More
 
 Sorry, docs are quite incomplete at present! Here are links for next steps.

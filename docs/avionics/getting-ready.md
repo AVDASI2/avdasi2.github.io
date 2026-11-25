@@ -1,3 +1,7 @@
+---
+icon: material/clipboard-check-outline
+---
+
 # Getting ready
 
 What to do before your first avionics workshop, so that the session is spent on the kit rather than on downloads.

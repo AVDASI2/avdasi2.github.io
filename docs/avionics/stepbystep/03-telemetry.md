@@ -1,3 +1,7 @@
+---
+icon: material/wifi
+---
+
 # Telemetry
 
 Let's start to free you from the shackles of the USB cable.

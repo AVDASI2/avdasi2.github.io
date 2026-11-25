@@ -1,3 +1,7 @@
+---
+icon: material/information-outline
+---
+
 # Introduction
 
 The introductory lecture for **Avionics and Mechanisms**, delivered to the full cohort. Session times and rooms are on the unit SharePoint.

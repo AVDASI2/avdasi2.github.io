@@ -1,3 +1,7 @@
+---
+icon: material/map-marker-path
+---
+
 # Mission Planner
 
 Mission Planner is a full-featured ground station application for the ArduPilot open source autopilot project. We will use it to set up the Cube and for initial learning and operation.
