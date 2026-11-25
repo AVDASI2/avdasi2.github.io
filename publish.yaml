@@ -39,10 +39,11 @@ pages:
   - avionics/stepbystep/07-cubegui.md
   - avionics/stepbystep/08-rc.md
   - avionics/stepbystep/08a-mode-switch.md
-  - avionics/stepbystep/09-adc.md
+  - avionics/stepbystep/09-sensors.md
   - avionics/stepbystep/10-i2c.md
+  - avionics/stepbystep/11-adc.md
   # Hidden for now: uncertain if it's wanted.
-  # - avionics/stepbystep/11-datalog.md
+  # - avionics/stepbystep/12-datalog.md
   - avionics/stepbystep/98-more.md
   - avionics/sensors.md
   - avionics/examplecode.md
